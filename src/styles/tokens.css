@@ -1,0 +1,32 @@
+/* ============================================================
+   FAIM ARTS — DESIGN TOKENS
+   All colors, fonts and spacing live here. No hardcoded
+   hex values or px sizes anywhere else.
+   ============================================================ */
+
+:root {
+  /* ── Colors ── */
+  --cream:          #F8F6F2;
+  --cream-dark:     #EDE8DF;
+  --ink:            #1a1612;
+  --brown:          #4A2C17;
+  --brown-accent:   #5C3A21;
+  --muted:          #6b6b6b;
+  --sand:           #C8B99A;
+  --white:          #ffffff;
+
+  /* ── Typography ── */
+  --font-display:   'Cormorant Garamond', Georgia, serif;
+  --font-sans:      'Inter', system-ui, -apple-system, sans-serif;
+  --font-script:    'Great Vibes', cursive;
+
+  /* ── Layout ── */
+  --nav-h:          72px;
+  --section-pad:    clamp(60px, 8vw, 120px);
+  --container:      1240px;
+  --gutter:         clamp(20px, 5vw, 60px);
+
+  /* ── Easing ── */
+  --ease-out:       cubic-bezier(0.22, 1, 0.36, 1);
+  --ease:           cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}

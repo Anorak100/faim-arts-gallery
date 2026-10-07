@@ -1,0 +1,275 @@
+/* ── Hero ─────────────────────────────────────────── */
+.hero {
+  background: var(--cream);
+  overflow: hidden;
+}
+
+/* Full-width 2-column grid */
+.hero__grid {
+  display: grid;
+  grid-template-columns: 42% 58%;
+  min-height: clamp(480px, 70vh, 760px);
+  max-height: 760px;
+}
+
+/* ── LEFT: text column ── */
+.hero__text-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0;
+  /* Left padding aligns with container; right padding creates breathing room */
+  padding-top: clamp(32px, 5vw, 60px);
+  padding-bottom: clamp(32px, 5vw, 60px);
+  /* On wide screens, align left edge with container boundary */
+  padding-left: max(var(--gutter), calc((100vw - var(--container)) / 2 + var(--gutter)));
+  padding-right: clamp(24px, 4vw, 56px);
+}
+
+/* ── Eyebrow row ── */
+.hero__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: clamp(22px, 3.5vw, 38px);
+  animation: fadeUp 0.8s var(--ease-out) 0.1s both;
+}
+
+.hero__eyebrow-label {
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.hero__eyebrow-line {
+  height: 1px;
+  width: clamp(60px, 10vw, 120px);
+  background: var(--sand);
+  flex-shrink: 0;
+}
+
+/* ── Text block with left 1px bar ── */
+.hero__text-block {
+  display: flex;
+  align-items: stretch;
+}
+
+.hero__left-bar {
+  width: 1px;
+  background: rgba(26, 22, 18, 0.45);
+  flex-shrink: 0;
+  margin-right: 28px;
+}
+
+.hero__text-inner {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+/* ── Headline — 3 lines, Cormorant Garamond light ── */
+.hero__headline {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 5vw, 4.5rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: clamp(18px, 2.5vw, 28px);
+}
+
+/* Each line is its own block — prevents word-level wrapping */
+.hero__line {
+  display: block;
+  white-space: nowrap;
+}
+
+.hero__line--1 { animation: fadeUp 0.8s var(--ease-out) 0.22s both; }
+.hero__line--2 { animation: fadeUp 0.8s var(--ease-out) 0.34s both; }
+.hero__line--3 { animation: fadeUp 0.8s var(--ease-out) 0.46s both; }
+
+/* "MISS." — italic, same weight, warm brown */
+.hero__headline em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--brown-accent);
+}
+
+/* ── Sub-label ── */
+.hero__sub {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  margin-bottom: clamp(22px, 3vw, 36px);
+  animation: fadeUp 0.8s var(--ease-out) 0.58s both;
+}
+
+.hero__sub-line {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #333;
+  line-height: 1.65;
+}
+
+.hero__sub-by {
+  font-weight: 300;
+  color: var(--muted);
+}
+
+/* ── CTA button ── */
+.hero__cta-wrap {
+  animation: fadeUp 0.8s var(--ease-out) 0.7s both;
+}
+
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: var(--brown);
+  color: var(--white);
+  font-family: var(--font-sans);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  padding: 16px 32px;
+  text-decoration: none;
+  transition:
+    background  0.3s var(--ease),
+    box-shadow  0.3s var(--ease);
+}
+
+.hero__cta:hover {
+  background: var(--brown-accent);
+  box-shadow: 0 8px 32px rgba(74, 44, 23, 0.28);
+}
+
+.hero__cta-arrow {
+  display: inline-block;
+  transition: transform 0.3s var(--ease);
+}
+.hero__cta:hover .hero__cta-arrow { transform: translateX(4px); }
+
+/* ── RIGHT: portrait column ── */
+.hero__img-col {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Slow reveal scale animation */
+.hero__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  animation: imgReveal 1.4s var(--ease-out) 0.05s both;
+}
+
+/* Gradient: portrait left edge bleeds into cream */
+.hero__img-fade {
+  position: absolute;
+  inset: 0;
+  right: auto;
+  width: 32%;
+  background: linear-gradient(to right, var(--cream) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Vertical "PORTRAIT SERIES" rotated label */
+.hero__series-label {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%) rotate(90deg);
+  transform-origin: center;
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(107, 107, 107, 0.65);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* ── RESPONSIVE ── */
+
+/* Tablet: shrink text column, keep 2 columns */
+@media (max-width: 1024px) {
+  .hero__grid { grid-template-columns: 46% 54%; }
+  .hero__headline { font-size: clamp(2rem, 4.5vw, 3.5rem); }
+}
+
+/* Mobile ≤768px: stack — portrait on top, text below */
+@media (max-width: 768px) {
+  .hero__grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: 50vh auto;
+    min-height: auto;
+    max-height: none;
+  }
+
+  /* Portrait moves to top */
+  .hero__img-col { order: -1; height: 50vh; }
+
+  /* Replace left fade with bottom fade on mobile */
+  .hero__img-fade {
+    inset: auto 0 0 0;
+    width: 100%;
+    height: 40%;
+    background: linear-gradient(to top, var(--cream) 0%, transparent 100%);
+  }
+
+  /* Text column: normal padding */
+  .hero__text-col {
+    padding: 28px var(--gutter) 48px;
+    padding-left: var(--gutter);
+  }
+
+  .hero__headline {
+    font-size: clamp(2rem, 8.5vw, 3rem);
+  }
+
+  /* Allow wrapping on mobile */
+  .hero__line { white-space: normal; }
+
+  .hero__series-label { display: none; }
+
+  /* Full-width CTA on mobile */
+  .hero__cta {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* Small mobile ≤480px */
+@media (max-width: 480px) {
+  .hero__headline { font-size: clamp(1.8rem, 9vw, 2.4rem); }
+  .hero__text-col { padding-top: 20px; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero__eyebrow,
+  .hero__line--1,
+  .hero__line--2,
+  .hero__line--3,
+  .hero__sub,
+  .hero__cta-wrap,
+  .hero__img {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}

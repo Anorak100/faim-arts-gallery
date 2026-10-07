@@ -1,0 +1,117 @@
+/* ── Footer ───────────────────────────────────────── */
+.footer {
+  background: var(--cream);
+  border-top: 1px solid rgba(200, 185, 154, 0.45);
+  padding: 44px 0 28px;
+}
+
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Top row */
+.footer__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  flex-wrap: wrap;
+  padding-bottom: 28px;
+}
+
+/* Logo */
+.footer__logo {
+  font-family: var(--font-script);
+  font-size: 1.6rem;
+  color: var(--brown);
+  transition: opacity 0.3s var(--ease);
+}
+.footer__logo:hover { opacity: 0.72; }
+
+/* Category links */
+.footer__links {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer__link-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer__link {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  transition: color 0.3s var(--ease);
+}
+.footer__link:hover { color: var(--brown); }
+
+.footer__sep {
+  font-size: 0.75rem;
+  color: var(--sand);
+}
+
+/* Social icons */
+.footer__socials {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.footer__social {
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  transition: color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.footer__social:hover {
+  color: var(--brown);
+  transform: translateY(-2px);
+}
+
+/* Divider */
+.footer__divider {
+  height: 1px;
+  border: none;
+  background: rgba(200, 185, 154, 0.45);
+  margin-bottom: 22px;
+}
+
+/* Bottom row */
+.footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer__copy,
+.footer__tagline {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 300;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 680px) {
+  .footer__top {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .footer__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

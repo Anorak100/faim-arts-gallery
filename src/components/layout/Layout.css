@@ -1,0 +1,9 @@
+.layout__main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  /* Push ALL page content below the fixed navbar */
+  padding-top: var(--nav-h);
+  /* Prevent any content from creating horizontal scroll */
+  overflow-x: hidden;
+}
