@@ -25,6 +25,8 @@
 .footer__logo {
   font-family: var(--font-script);
   font-size: 1.6rem;
+  line-height: 1.05;
+  letter-spacing: normal;
   color: var(--brown);
   transition: opacity 0.3s var(--ease);
 }
