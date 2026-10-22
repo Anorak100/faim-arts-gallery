@@ -27,14 +27,31 @@
 .art-card {
   display: flex;
   flex-direction: column;
+}
+
+.art-card__interactive {
+  display: flex;
+  flex-direction: column;
   gap: 14px;
   cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 0;
+  text-align: left;
+  outline: none;
+  width: 100%;
+}
+
+.art-card__interactive:focus-visible {
+  outline: 2px solid var(--brown);
+  outline-offset: 4px;
 }
 
 .art-card__img-wrap {
   position: relative;
   overflow: hidden;
   background: var(--cream-dark);
+  width: 100%;
 }
 
 .art-card__img {
@@ -45,23 +62,35 @@
   transition: transform 0.7s var(--ease-out), filter 0.5s ease;
 }
 
-.art-card:hover .art-card__img {
+.art-card__interactive:hover .art-card__img {
   transform: scale(1.03);
   filter: grayscale(0%) contrast(1.06);
 }
 
-/* Hover overlay */
+/* Hover overlay: pointer cursor, View Work label */
 .art-card__overlay {
   position: absolute;
   inset: 0;
-  background: rgba(26, 22, 18, 0.3);
+  background: rgba(26, 22, 18, 0.35);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
+  cursor: pointer;
   transition: opacity 0.4s ease;
 }
-.art-card:hover .art-card__overlay { opacity: 1; }
+
+.art-card__interactive:hover .art-card__overlay {
+  opacity: 1;
+}
+
+/* Visible label by default on touch devices */
+@media (hover: none) {
+  .art-card__overlay {
+    opacity: 1;
+    background: rgba(26, 22, 18, 0.28);
+  }
+}
 
 .art-card__overlay-text {
   font-family: var(--font-sans);
@@ -90,13 +119,8 @@
   color: var(--ink);
   transition: color 0.3s ease;
 }
-.art-card:hover .art-card__title { color: var(--brown); }
-
-.art-card__meta {
-  font-family: var(--font-sans);
-  font-size: 0.65rem;
-  font-weight: 300;
-  color: var(--muted);
+.art-card__interactive:hover .art-card__title {
+  color: var(--brown);
 }
 
 /* Growing underline */
@@ -107,7 +131,98 @@
   margin-top: 4px;
   transition: width 0.4s var(--ease-out);
 }
-.art-card:hover .art-card__underline { width: 48px; }
+.art-card__interactive:hover .art-card__underline {
+  width: 48px;
+}
+
+/* ── Full-screen Image Viewer Modal ── */
+@keyframes viewerFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.artwork-viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(15, 10, 7, 0.92);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(20px, 4vw, 40px);
+  animation: viewerFadeIn 0.25s var(--ease-out) both;
+  cursor: zoom-out;
+}
+
+/* Close (X) button at top-right: cream colored, >= 44px, always visible */
+.artwork-viewer__close {
+  position: absolute;
+  top: clamp(16px, 3vh, 32px);
+  right: clamp(16px, 3vw, 32px);
+  min-width: 44px;
+  min-height: 44px;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cream);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(248, 246, 242, 0.2);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1010;
+  transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.artwork-viewer__close:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(248, 246, 242, 0.5);
+  transform: scale(1.06);
+}
+
+.artwork-viewer__close:focus-visible {
+  outline: 2px solid var(--cream);
+  outline-offset: 3px;
+}
+
+/* Centered and uncropped image container */
+.artwork-viewer__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 90vw;
+  max-height: 85vh;
+  cursor: default;
+}
+
+.artwork-viewer__img {
+  max-width: 90vw;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  border-radius: 1px;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+}
+
+/* "Core Values" caption below image for cards 1 to 3 */
+.artwork-viewer__caption {
+  margin-top: 16px;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--cream);
+  opacity: 0.88;
+}
 
 /* ── Responsive ── */
 
@@ -128,5 +243,7 @@
 
 /* Mobile — 1 column */
 @media (max-width: 550px) {
-  .selected-works__grid { grid-template-columns: 1fr; }
+  .selected-works__grid {
+    grid-template-columns: 1fr;
+  }
 }
