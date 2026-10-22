@@ -33,20 +33,52 @@ export default function Footer() {
           </nav>
 
           <div className="footer__socials">
-            <a href="#" id="footer-instagram" aria-label="Instagram" className="footer__social">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <a
+              href="https://www.instagram.com/faimarts"
+              id="footer-instagram"
+              aria-label="Instagram"
+              className="footer__social"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <rect x="2" y="2" width="20" height="20" rx="5" />
                 <circle cx="12" cy="12" r="4" />
                 <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
               </svg>
             </a>
-            <a href="#" id="footer-x" aria-label="X (Twitter)" className="footer__social">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.736l7.73-8.835L1.254 2.25H8.08l4.258 5.63L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z" />
+            <a
+              href="https://www.tiktok.com/@faimarts"
+              id="footer-tiktok"
+              aria-label="TikTok"
+              className="footer__social"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M12.5 3v11.2a4.2 4.2 0 1 1-3.4-4.1" />
+                <path d="M12.5 3c.4 3.2 2.4 5.2 5.5 5.5" />
               </svg>
             </a>
-            <a href="#" id="footer-email" aria-label="Email" className="footer__social">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <a
+              href="https://www.facebook.com/faimarts"
+              id="footer-facebook"
+              aria-label="Facebook"
+              className="footer__social"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+              </svg>
+            </a>
+            <a
+              href="mailto:faimarts@gmail.com"
+              id="footer-email"
+              aria-label="Email"
+              className="footer__social"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <rect x="2" y="4" width="20" height="16" rx="2" />
                 <polyline points="2,4 12,13 22,4" />
               </svg>
