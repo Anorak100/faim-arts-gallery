@@ -1,6 +1,7 @@
 import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout      from './components/layout/Layout';
 import Home        from './pages/Home';
+import About       from './pages/About';
 import ComingSoon  from './pages/ComingSoon';
 
 export default function App() {
@@ -12,7 +13,7 @@ export default function App() {
           <Route path="/"            element={<Home />} />
 
           {/* Additional pages */}
-          <Route path="/about"       element={<ComingSoon title="About" />} />
+          <Route path="/about"       element={<About />} />
           <Route path="/gallery"     element={<ComingSoon title="Gallery" />} />
           <Route path="/commissions" element={<ComingSoon title="Commissions" />} />
           <Route path="/shop"        element={<ComingSoon title="Shop" />} />
