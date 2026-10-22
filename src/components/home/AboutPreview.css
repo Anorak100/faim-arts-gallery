@@ -130,6 +130,7 @@
 /* ── Image side ── */
 .about-preview__img-wrap {
   position: relative;
+  overflow: hidden;
 }
 
 .about-preview__img {
@@ -141,21 +142,6 @@
   filter: grayscale(8%) contrast(1.04);
 }
 
-/* Decorative offset frame */
-.about-preview__frame {
-  position: absolute;
-  bottom: -14px;
-  right: -14px;
-  width: calc(100% - 28px);
-  height: calc(100% - 28px);
-  border: 1px solid var(--sand);
-  pointer-events: none;
-  transition: transform 0.4s var(--ease);
-}
-.about-preview__img-wrap:hover .about-preview__frame {
-  transform: translate(4px, 4px);
-}
-
 /* ── Responsive ── */
 @media (max-width: 860px) {
   .about-preview__layout {
@@ -163,6 +149,5 @@
     gap: 40px;
   }
   .about-preview__img-wrap { order: -1; }
-  .about-preview__frame    { display: none; }
   .about-preview__body     { max-width: none; }
 }

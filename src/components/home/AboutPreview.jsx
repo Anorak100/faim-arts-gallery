@@ -58,7 +58,6 @@ export default function AboutPreview() {
               width={700}
               height={875}
             />
-            <div className="about-preview__frame" aria-hidden="true" />
           </Reveal>
 
         </div>
