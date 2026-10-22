@@ -7,7 +7,7 @@ export default function QuoteBand() {
       {/* Background portrait as texture */}
       <div className="quote-band__bg" aria-hidden="true">
         <img
-          src="/elder.jpg"
+          src="https://res.cloudinary.com/dru2blbte/image/upload/v1792620371/IMG_1115.JPG.jpg"
           alt=""
           className="quote-band__bg-img"
           loading="lazy"

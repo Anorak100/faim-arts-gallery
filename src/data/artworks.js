@@ -1,46 +1,50 @@
 /**
  * Artwork data — single source of truth.
- * Add or remove artwork objects here; components map over this array.
+ * 4 Selected Works with Cloudinary optimized URLs.
  */
 export const artworks = [
   {
-    id:      'young-mind',
-    title:   'The Young Mind',
-    medium:  'Graphite on paper',
-    year:    '2024',
-    image:   '/young-mind.jpg',
-    alt:     'Hyperrealistic graphite portrait of a young man with an intense gaze',
-    size:    'large',   // controls grid spanning: large | small | medium
-    featured: true,
+    id:          'core-values-1',
+    title:       'Core Values',
+    image:       'https://res.cloudinary.com/dru2blbte/image/upload/f_auto,q_auto,w_900/v1792620371/IMG_1115.JPG.jpg',
+    viewerImage: 'https://res.cloudinary.com/dru2blbte/image/upload/f_auto,q_auto,w_2000/v1792620371/IMG_1115.JPG.jpg',
+    alt:         'Core Values – Graphite portrait by Iyanuoluwapo Akoteyon',
+    size:        'large',   // controls grid spanning: large (col 1, row 1 / 3)
+    featured:    true,
+    showInfo:    true,
+    objectPosition: 'center 30%',
   },
   {
-    id:      'elder',
-    title:   'The Elder',
-    medium:  'Graphite on paper',
-    year:    '2023',
-    image:   '/elder.jpg',
-    alt:     'Graphite portrait of an elderly man in a flat cap, wisdom in his eyes',
-    size:    'small',
-    featured: true,
+    id:          'core-values-2',
+    title:       'Core Values',
+    image:       'https://res.cloudinary.com/dru2blbte/image/upload/f_auto,q_auto,w_900/v1792620366/IMG_1111.JPG.jpg',
+    viewerImage: 'https://res.cloudinary.com/dru2blbte/image/upload/f_auto,q_auto,w_2000/v1792620366/IMG_1111.JPG.jpg',
+    alt:         'Core Values – Detailed pencil drawing by Iyanuoluwapo Akoteyon',
+    size:        'small',   // controls grid spanning: small (col 2, auto row)
+    featured:    true,
+    showInfo:    true,
+    objectPosition: 'center 20%',
   },
   {
-    id:      'her-world',
-    title:   'In Her Own World',
-    medium:  'Graphite on paper',
-    year:    '2024',
-    image:   '/her-world.jpg',
-    alt:     'Graphite side-profile portrait of a young woman wearing a head wrap',
-    size:    'small',
-    featured: true,
+    id:          'core-values-3',
+    title:       'Core Values',
+    image:       'https://res.cloudinary.com/dru2blbte/image/upload/f_auto,q_auto,w_900/v1792620368/IMG_1119.JPG.jpg',
+    viewerImage: 'https://res.cloudinary.com/dru2blbte/image/upload/f_auto,q_auto,w_2000/v1792620368/IMG_1119.JPG.jpg',
+    alt:         'Core Values – Expressive pencil portrait by Iyanuoluwapo Akoteyon',
+    size:        'small',   // controls grid spanning: small (col 2, auto row)
+    featured:    true,
+    showInfo:    true,
+    objectPosition: 'center center',
   },
   {
-    id:      'still-here',
-    title:   'Still Here',
-    medium:  'Graphite on paper',
-    year:    '2024',
-    image:   '/still-here.jpg',
-    alt:     'Graphite portrait of a child with large expressive eyes',
-    size:    'medium',
-    featured: true,
+    id:          'core-values-4',
+    title:       '',        // Card 4 has no title, no caption and no brown underline
+    image:       'https://res.cloudinary.com/dru2blbte/image/upload/f_auto,q_auto,w_900/v1792620370/IMG_0994.jpg',
+    viewerImage: 'https://res.cloudinary.com/dru2blbte/image/upload/f_auto,q_auto,w_2000/v1792620370/IMG_0994.jpg',
+    alt:         'Artwork by Iyanuoluwapo Akoteyon',
+    size:        'medium',  // controls grid spanning: medium (col 3, row 1 / 3)
+    featured:    true,
+    showInfo:    false,
+    objectPosition: 'center 20%',
   },
 ];

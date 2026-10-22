@@ -35,13 +35,14 @@
 
 .about-preview__headline {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3.4rem);
+  font-size: clamp(1.6rem, 2.4vw, 2.35rem);
   font-weight: 400;
-  line-height: 1.07;
+  line-height: 1.15;
   letter-spacing: 0.01em;
   text-transform: uppercase;
   color: var(--ink);
   margin-bottom: 22px;
+  text-wrap: balance;
 }
 .about-preview__headline em {
   font-style: italic;
@@ -129,30 +130,16 @@
 /* ── Image side ── */
 .about-preview__img-wrap {
   position: relative;
+  overflow: hidden;
 }
 
 .about-preview__img {
   width: 100%;
   aspect-ratio: 4/5;
   object-fit: cover;
-  object-position: center;
+  object-position: center 20%;
   display: block;
   filter: grayscale(8%) contrast(1.04);
-}
-
-/* Decorative offset frame */
-.about-preview__frame {
-  position: absolute;
-  bottom: -14px;
-  right: -14px;
-  width: calc(100% - 28px);
-  height: calc(100% - 28px);
-  border: 1px solid var(--sand);
-  pointer-events: none;
-  transition: transform 0.4s var(--ease);
-}
-.about-preview__img-wrap:hover .about-preview__frame {
-  transform: translate(4px, 4px);
 }
 
 /* ── Responsive ── */
@@ -162,6 +149,5 @@
     gap: 40px;
   }
   .about-preview__img-wrap { order: -1; }
-  .about-preview__frame    { display: none; }
   .about-preview__body     { max-width: none; }
 }

@@ -73,8 +73,16 @@
 .footer__social {
   color: var(--muted);
   display: flex;
+  width: 22px;
+  height: 22px;
   align-items: center;
+  justify-content: center;
   transition: color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.footer__social svg {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
 }
 .footer__social:hover {
   color: var(--brown);

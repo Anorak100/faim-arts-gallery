@@ -18,14 +18,11 @@ export default function AboutPreview() {
             <div className="about-preview__label-line" aria-hidden="true" />
 
             <h2 id="about-preview-heading" className="about-preview__headline">
-              Every Face<br />
-              Carries a&nbsp;<em>Story.</em>
+              Iyanu invites viewers to pause, question, and look&nbsp;<em>inward</em>
             </h2>
 
             <p className="about-preview__body">
-              I create portraits that explore identity, emotion, and human presence.
-              Through graphite and traditional mediums, I seek to capture the quiet
-              power in everyday people and the depth within their stories.
+              Her work examines the ideas, emotions, relationships, and realities that shape how people understand themselves and the world around them, often inviting reflection on what is easily overlooked or taken for granted.
             </p>
 
             <div className="about-preview__stats" role="list">
@@ -51,17 +48,16 @@ export default function AboutPreview() {
             </Link>
           </Reveal>
 
-          {/* Right: studio photo */}
+          {/* Right: artist portrait photo */}
           <Reveal delay={160} className="about-preview__img-wrap">
             <img
-              src="/studio.jpg"
-              alt="Iyanu working in the studio on a large graphite portrait at an easel"
+              src="https://res.cloudinary.com/dru2blbte/image/upload/f_auto,q_auto,w_1400/v1792620376/IMG_1123.JPG.jpg"
+              alt="Iyanuoluwapo Akoteyon, pencil artist"
               className="about-preview__img"
               loading="lazy"
               width={700}
               height={875}
             />
-            <div className="about-preview__frame" aria-hidden="true" />
           </Reveal>
 
         </div>
