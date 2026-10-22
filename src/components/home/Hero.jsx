@@ -4,9 +4,8 @@ import './Hero.css';
 export default function Hero() {
   return (
     <section className="hero" id="home" aria-label="Featured Work – Hero">
-
-      {/* 2-column grid: minmax(0, 1.1fr) minmax(0, 0.9fr) */}
-      <div className="hero__grid container">
+      <div className="hero__wrapper">
+        <div className="hero__grid">
 
         {/* ── LEFT: text column ─────────────────── */}
         <div className="hero__text-col">
@@ -67,6 +66,7 @@ export default function Hero() {
           <div className="hero__img-fade" />
         </div>
 
+        </div>
       </div>
     </section>
   );

@@ -6,12 +6,18 @@
   align-items: center;
 }
 
-/* 2-column grid: minmax(0, 1.1fr) minmax(0, 0.9fr) */
+.hero__wrapper {
+  width: 100%;
+  max-width: 1400px;
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
 .hero__grid {
   display: grid;
-  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-  align-items: center;
-  column-gap: clamp(2rem, 4vw, 5rem);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  column-gap: clamp(1.5rem, 3vw, 3.5rem);
+  align-items: stretch;
   width: 100%;
   padding-block: clamp(24px, 4vh, 48px);
 }
@@ -132,7 +138,6 @@
 /* ── CTA button (at least 40px of space below it) ── */
 .hero__cta-wrap {
   animation: fadeUp 0.8s var(--ease-out) 0.7s both;
-  margin-bottom: clamp(40px, 5vh, 48px);
 }
 
 .hero__cta {
@@ -169,19 +174,15 @@
 .hero__img-col {
   position: relative;
   overflow: hidden;
-  aspect-ratio: 4 / 5;
   width: 100%;
-  max-height: min(65vh, 485px);
-  max-width: calc(min(65vh, 485px) * 0.8);
-  justify-self: end;
+  height: 100%;
+  align-self: stretch;
 }
 
 /* Slow reveal scale animation */
 .hero__img {
   width: 100%;
   height: 100%;
-  aspect-ratio: 4 / 5;
-  max-height: min(65vh, 485px);
   object-fit: cover;
   object-position: center 30%;
   display: block;
@@ -191,9 +192,10 @@
 /* Soft fade on left edge so it blends into the cream background */
 .hero__img-fade {
   position: absolute;
-  inset: 0;
+  inset-block: 0;
+  left: 0;
   right: auto;
-  width: 25%;
+  width: clamp(60px, 5vw, 80px);
   background: linear-gradient(to right, var(--cream) 0%, transparent 100%);
   pointer-events: none;
 }
@@ -205,16 +207,14 @@
 
 /* ── RESPONSIVE ── */
 
-/* Tablet: 769px to 1024px */
-@media (max-width: 1024px) and (min-width: 769px) {
-  .hero__grid {
-    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
-    column-gap: 2rem;
-  }
-}
-
 /* Mobile ≤768px: hero image as full-screen background, text anchored to bottom */
 @media (max-width: 768px) {
+  .hero__wrapper {
+    max-width: none;
+    margin-inline: 0;
+    padding-inline: 0;
+  }
+
   .hero__grid.container,
   .hero__grid {
     grid-template-columns: 1fr;
