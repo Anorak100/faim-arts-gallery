@@ -10,7 +10,7 @@
   display: grid;
   grid-template-columns: 1.2fr 0.9fr 1fr;
   gap: clamp(14px, 2vw, 20px);
-  align-items: start;
+  align-items: stretch;
 }
 
 /* Grid placement */
@@ -22,6 +22,35 @@
 .art-card--large  .art-card__img-wrap { aspect-ratio: 3/4; }
 .art-card--small  .art-card__img-wrap { aspect-ratio: 4/3; }
 .art-card--medium .art-card__img-wrap { aspect-ratio: 3/4; }
+
+/* On desktop (>900px), card 4 fills full column height with object-fit: cover */
+@media (min-width: 901px) {
+  .art-card--medium {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .art-card--medium .art-card__interactive {
+    height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .art-card--medium .art-card__img-wrap {
+    height: 100%;
+    flex: 1;
+    aspect-ratio: auto;
+  }
+
+  .art-card--medium .art-card__img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+  }
+}
 
 /* ── Card ── */
 .art-card {

@@ -45,6 +45,6 @@ export const artworks = [
     size:        'medium',  // controls grid spanning: medium (col 3, row 1 / 3)
     featured:    true,
     showInfo:    false,
-    objectPosition: 'center center',
+    objectPosition: 'center 20%',
   },
 ];
