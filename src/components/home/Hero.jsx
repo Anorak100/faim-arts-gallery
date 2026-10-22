@@ -5,8 +5,8 @@ export default function Hero() {
   return (
     <section className="hero" id="home" aria-label="Featured Work – Hero">
 
-      {/* 2-column grid: ~42% text | ~58% portrait */}
-      <div className="hero__grid">
+      {/* 2-column grid: minmax(0, 1.1fr) minmax(0, 0.9fr) */}
+      <div className="hero__grid container">
 
         {/* ── LEFT: text column ─────────────────── */}
         <div className="hero__text-col">
@@ -22,22 +22,23 @@ export default function Hero() {
             <div className="hero__left-bar" aria-hidden="true" />
 
             <div className="hero__text-inner">
-              {/* Headline — exactly 3 lines, each wrapped in its own span */}
+              {/* Headline — 4 lines */}
               <h1
                 className="hero__headline"
-                aria-label="The Art of Seeing What Others Miss"
+                aria-label="The art of representing the soul, values, and the human condition"
               >
                 <span className="hero__line hero__line--1">The Art Of</span>
-                <span className="hero__line hero__line--2">Seeing What</span>
-                <span className="hero__line hero__line--3">
-                  Others&nbsp;<em>Miss.</em>
+                <span className="hero__line hero__line--2">Representing The</span>
+                <span className="hero__line hero__line--3">Soul, Values, And</span>
+                <span className="hero__line hero__line--4">
+                  The Human&nbsp;<em>Condition</em>
                 </span>
               </h1>
 
               {/* Sub-label */}
               <p className="hero__sub">
-                <span className="hero__sub-line">Contemporary Portraiture</span>
-                <span className="hero__sub-line hero__sub-by">By Iyanu</span>
+                <span className="hero__sub-line">Art created using pencils</span>
+                <span className="hero__sub-line hero__sub-by">by Iyanuoluwapo Akoteyon (Faim Arts)</span>
               </p>
 
               {/* CTA */}
@@ -54,8 +55,8 @@ export default function Hero() {
         {/* ── RIGHT: portrait column ────────────── */}
         <div className="hero__img-col" aria-hidden="true">
           <img
-            src="/hero.jpg"
-            alt="Portrait of a woman wearing a traditional head wrap — featured work by Iyanu"
+            src="https://res.cloudinary.com/dru2blbte/image/upload/v1792620147/IMG_0991.JPG.jpg"
+            alt="Portrait artwork of man in hourglass by Iyanuoluwapo Akoteyon"
             className="hero__img"
             width={800}
             height={1000}
@@ -64,9 +65,6 @@ export default function Hero() {
 
           {/* Gradient: portrait left edge fades into cream */}
           <div className="hero__img-fade" />
-
-          {/* Rotated "PORTRAIT SERIES" edge label */}
-          <span className="hero__series-label">Portrait Series</span>
         </div>
 
       </div>
