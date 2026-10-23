@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import Reveal from '../components/ui/Reveal';
-import { commissionArtworks, commissionCategories } from '../data/artworks';
+import { commissionArtworks } from '../data/artworks';
 import './Commissions.css';
 
 const tiers = [
@@ -52,26 +52,19 @@ const steps = [
 ];
 
 export default function Commissions() {
-  const [activeCategory, setActiveCategory] = useState('All Works');
   const [activeArtwork, setActiveArtwork] = useState(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     country: '',
-    size: 'The Classic Heirloom (20 × 28 in)',
-    subject: '',
+    size: 'The Classic Heirloom',
     message: '',
   });
 
   const closeBtnRef = useRef(null);
   const triggerRefs = useRef({});
   const formRef = useRef(null);
-
-  // Filter commissions portfolio
-  const filteredCommissions = activeCategory === 'All Works'
-    ? commissionArtworks
-    : commissionArtworks.filter((w) => w.category === activeCategory);
 
   const openViewer = (work) => {
     setActiveArtwork(work);
@@ -116,6 +109,8 @@ export default function Commissions() {
     setFormSubmitted(true);
   };
 
+  const activeIndex = activeArtwork ? commissionArtworks.findIndex((w) => w.id === activeArtwork.id) : -1;
+
   return (
     <main className="commissions-page" id="commissions-page" aria-label="Bespoke Art Commissions by Iyanuoluwapo Akoteyon">
       {/* ── 1. Hero ────────────────────────────────────────────── */}
@@ -156,14 +151,14 @@ export default function Commissions() {
         </div>
       </section>
 
-      {/* ── 2. The Commissioned Archive (The 8 Pieces) ─────────── */}
+      {/* ── 2. The Commissioned Archive (8 Client Portraits — No Groupings, No Titles) ── */}
       <section className="commissions-portfolio" aria-labelledby="portfolio-title">
         <div className="container">
           <Reveal>
             <div className="commissions-portfolio__header">
               <div>
                 <div className="commissions-eyebrow">
-                  <span className="commissions-eyebrow__label">Curated Selection</span>
+                  <span className="commissions-eyebrow__label">Client Works</span>
                   <div className="commissions-eyebrow__line" aria-hidden="true" />
                 </div>
                 <h2 id="portfolio-title" className="commissions-section-title">
@@ -171,33 +166,14 @@ export default function Commissions() {
                 </h2>
               </div>
               <p className="commissions-portfolio__lead">
-                A portfolio of bespoke portraits created for private collectors, families, and institutions globally.
+                A selection of private commissioned portraits drawn for collectors and families worldwide.
               </p>
-            </div>
-
-            {/* Filter Tabs */}
-            <div className="commissions-tabs" role="tablist">
-              {commissionCategories.map((cat) => {
-                const count = cat === 'All Works' ? commissionArtworks.length : commissionArtworks.filter((w) => w.category === cat).length;
-                const isActive = activeCategory === cat;
-                return (
-                  <button
-                    key={cat}
-                    type="button"
-                    className={`commissions-tab ${isActive ? 'is-active' : ''}`}
-                    onClick={() => setActiveCategory(cat)}
-                  >
-                    <span>{cat}</span>
-                    <span className="commissions-tab__count">({count})</span>
-                  </button>
-                );
-              })}
             </div>
           </Reveal>
 
           {/* Cards Grid */}
           <div className="commissions-grid">
-            {filteredCommissions.map((work, index) => {
+            {commissionArtworks.map((work, index) => {
               const serial = String(index + 1).padStart(2, '0');
               return (
                 <Reveal key={work.id} delay={(index % 3) * 100} className="commissions-card-wrap">
@@ -213,12 +189,12 @@ export default function Commissions() {
                         openViewer(work);
                       }
                     }}
-                    aria-label={`Inspect commission: ${work.title}`}
+                    aria-label={`Inspect commission portrait № ${serial}`}
                   >
                     <div className="commissions-card__frame">
                       <img
                         src={work.image}
-                        alt={work.alt || work.title}
+                        alt={`Commissioned portrait drawing № ${serial}`}
                         className="commissions-card__img"
                         loading="lazy"
                         width={600}
@@ -226,17 +202,18 @@ export default function Commissions() {
                       />
                       <span className="commissions-card__badge">№ {serial}</span>
                       <div className="commissions-card__overlay" aria-hidden="true">
-                        <span>Inspect Commission</span>
+                        <span>Inspect Drawing</span>
                       </div>
                     </div>
 
+                    {/* Factual Specs Only — No Titles */}
                     <div className="commissions-card__placard">
-                      <div className="commissions-card__top">
-                        <h3 className="commissions-card__title">{work.title}</h3>
+                      <p className="commissions-card__medium">{work.medium}</p>
+                      <div className="commissions-card__meta-row">
+                        <span className="commissions-card__dimensions">{work.dimensions}</span>
+                        <span className="commissions-card__sep" aria-hidden="true">&bull;</span>
                         <span className="commissions-card__year">{work.year}</span>
                       </div>
-                      <span className="commissions-card__type">{work.commissionType}</span>
-                      <p className="commissions-card__meta">{work.medium} · {work.dimensions}</p>
                     </div>
                   </article>
                 </Reveal>
@@ -434,13 +411,13 @@ export default function Commissions() {
         </div>
       </section>
 
-      {/* ── 6. Masterwork Lightbox Modal ──────────────────────── */}
+      {/* ── 6. Masterwork Lightbox Modal (No Titles) ──────────── */}
       {activeArtwork && (
         <div
           className="gallery-modal"
           role="dialog"
           aria-modal="true"
-          aria-label={`${activeArtwork.title} detail viewer`}
+          aria-label="Commission portrait viewer"
           onClick={(e) => {
             if (e.target === e.currentTarget) closeViewer();
           }}
@@ -462,19 +439,18 @@ export default function Commissions() {
             <div className="gallery-modal__stage">
               <img
                 src={activeArtwork.viewerImage}
-                alt={activeArtwork.alt || activeArtwork.title}
+                alt="Commissioned portrait drawing by Iyanuoluwapo Akoteyon"
                 className="gallery-modal__img"
               />
             </div>
 
             <aside className="gallery-modal__meta">
               <div className="gallery-modal__meta-top">
-                <span className="gallery-modal__counter">{activeArtwork.commissionType}</span>
-                <span className="gallery-modal__badge">{activeArtwork.year}</span>
+                <span className="gallery-modal__counter">
+                  № {String(activeIndex + 1).padStart(2, '0')} / {String(commissionArtworks.length).padStart(2, '0')}
+                </span>
+                <span className="gallery-modal__badge">{activeArtwork.year} · Private Collection</span>
               </div>
-
-              <h3 className="gallery-modal__title">{activeArtwork.title}</h3>
-              <div className="gallery-modal__line" aria-hidden="true" />
 
               <dl className="gallery-modal__specs">
                 <div className="gallery-modal__spec-row">
@@ -485,21 +461,21 @@ export default function Commissions() {
                   <dt>Dimensions</dt>
                   <dd>{activeArtwork.dimensions}</dd>
                 </div>
+                <div className="gallery-modal__spec-row">
+                  <dt>Provenance</dt>
+                  <dd>Private Client Commission</dd>
+                </div>
               </dl>
-
-              {activeArtwork.description && (
-                <p className="gallery-modal__description">{activeArtwork.description}</p>
-              )}
 
               <button
                 type="button"
                 className="gallery-modal__inquire-btn"
                 onClick={() => {
                   closeViewer();
-                  selectTierForForm(activeArtwork.title);
+                  selectTierForForm('The Classic Heirloom');
                 }}
               >
-                <span>Request A Piece In This Style</span>
+                <span>Inquire About A Portrait Commission</span>
                 <span aria-hidden="true">&rarr;</span>
               </button>
             </aside>

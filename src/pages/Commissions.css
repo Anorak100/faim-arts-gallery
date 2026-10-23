@@ -139,46 +139,6 @@
   max-width: 480px;
 }
 
-.commissions-tabs {
-  display: flex;
-  gap: 10px;
-  flex-wrap: wrap;
-  margin-bottom: 44px;
-}
-
-.commissions-tab {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 8px 16px;
-  background: transparent;
-  border: 1px solid var(--sand);
-  color: var(--muted);
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.25s var(--ease);
-}
-
-.commissions-tab:hover {
-  background: var(--cream-dark);
-  color: var(--ink);
-}
-
-.commissions-tab.is-active {
-  background: var(--brown);
-  border-color: var(--brown);
-  color: var(--white);
-}
-
-.commissions-tab__count {
-  font-size: 0.62rem;
-  opacity: 0.8;
-}
-
 /* ── Grid of 8 Pieces ── */
 .commissions-grid {
   display: grid;
@@ -268,47 +228,32 @@
 }
 
 .commissions-card__placard {
-  padding-top: 16px;
+  padding-top: 14px;
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 6px;
 }
 
-.commissions-card__top {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 12px;
-}
-
-.commissions-card__title {
+.commissions-card__medium {
   font-family: var(--font-display);
-  font-size: 1.25rem;
+  font-size: 1.05rem;
   font-weight: 500;
   color: var(--ink);
+  line-height: 1.25;
 }
 
-.commissions-card__year {
+.commissions-card__meta-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-family: var(--font-sans);
   font-size: 0.72rem;
   color: var(--muted);
+  letter-spacing: 0.04em;
 }
 
-.commissions-card__type {
-  font-family: var(--font-sans);
-  font-size: 0.62rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: var(--brown);
-}
-
-.commissions-card__meta {
-  font-family: var(--font-sans);
-  font-size: 0.75rem;
-  font-weight: 300;
-  color: var(--muted);
-  line-height: 1.4;
+.commissions-card__sep {
+  opacity: 0.5;
 }
 
 /* ── 3. The 4-Step Process ──────────────────────────────────── */
