@@ -252,7 +252,98 @@ export default function Commissions() {
         </div>
       </section>
 
-      {/* ── 4. Sizing & Tiers ─────────────────────────────────── */}
+      {/* ── 4. The Commission Manifesto ─────────────────────── */}
+      <section className="commissions-manifesto" id="manifesto" aria-labelledby="manifesto-heading">
+        <div className="container">
+          <Reveal>
+            <div className="commissions-eyebrow">
+              <span className="commissions-eyebrow__label">03 / Principles &amp; Guidelines</span>
+              <div className="commissions-eyebrow__line" aria-hidden="true" />
+            </div>
+            <div className="commissions-manifesto__head">
+              <h2 id="manifesto-heading" className="commissions-section-title">
+                The Commission <em>Manifesto</em>
+              </h2>
+              <p className="commissions-manifesto__lead">
+                Everything you need to know about booking, scope, freight, and reserving an original portrait drawing.
+              </p>
+            </div>
+          </Reveal>
+
+          <div className="commissions-manifesto__grid">
+            {/* 1. 50% Deposit */}
+            <Reveal delay={80} className="commissions-manifesto__card">
+              <span className="commissions-manifesto__card-num">Policy 01</span>
+              <h3 className="commissions-manifesto__card-title">50% Reservation Deposit</h3>
+              <p className="commissions-manifesto__card-body">
+                A 50% deposit payment is required once you decide your size and number of subjects <strong>before</strong> reference photos are requested via email.
+              </p>
+              <p className="commissions-manifesto__card-sub">
+                You are welcome to request a video call to confirm my identity prior to making payment.
+              </p>
+            </Reveal>
+
+            {/* 2. Portraits Exclusively */}
+            <Reveal delay={120} className="commissions-manifesto__card">
+              <span className="commissions-manifesto__card-num">Policy 02</span>
+              <h3 className="commissions-manifesto__card-title">Portraits Exclusively</h3>
+              <p className="commissions-manifesto__card-body">
+                The commission price-list strictly covers <strong>portrait drawings</strong>. It does not cover imaginative or conceptual drawing requests.
+              </p>
+            </Reveal>
+
+            {/* 3. Free Global DHL Freight */}
+            <Reveal delay={160} className="commissions-manifesto__card">
+              <span className="commissions-manifesto__card-num">Policy 03</span>
+              <h3 className="commissions-manifesto__card-title">Complimentary Global DHL Freight</h3>
+              <p className="commissions-manifesto__card-body">
+                There are no hidden costs. All drawings are delivered <strong>for free worldwide via DHL Express</strong>. Clients and collectors should never worry about shipping fees.
+              </p>
+            </Reveal>
+
+            {/* 4. Arrives Unframed */}
+            <Reveal delay={200} className="commissions-manifesto__card">
+              <span className="commissions-manifesto__card-num">Policy 04</span>
+              <h3 className="commissions-manifesto__card-title">Delivered Unframed</h3>
+              <p className="commissions-manifesto__card-body">
+                Drawings arrive securely packed and unframed, giving you the complete freedom to frame the piece according to your personal taste and interior space.
+              </p>
+            </Reveal>
+
+            {/* 5. Production Timeline */}
+            <Reveal delay={240} className="commissions-manifesto__card">
+              <span className="commissions-manifesto__card-num">Policy 05</span>
+              <h3 className="commissions-manifesto__card-title">Timeline &amp; Turnaround</h3>
+              <p className="commissions-manifesto__card-body">
+                Each portrait requires between <strong>3 weeks to 2 months</strong> of dedicated studio work, depending on the scale and complexity of the subject.
+              </p>
+            </Reveal>
+
+            {/* 6. Multiple Photo References */}
+            <Reveal delay={280} className="commissions-manifesto__card">
+              <span className="commissions-manifesto__card-num">Policy 06</span>
+              <h3 className="commissions-manifesto__card-title">Flexible Photo References</h3>
+              <p className="commissions-manifesto__card-body">
+                You can submit multiple photographic references. Two or more subjects do not need to be in the same picture to be harmoniously composed into one portrait.
+              </p>
+            </Reveal>
+          </div>
+
+          {/* Archival Quality & Packaging Guarantee Banner */}
+          <Reveal delay={150}>
+            <div className="commissions-manifesto__banner">
+              <div className="commissions-manifesto__banner-left">
+                <span className="commissions-manifesto__banner-tag">Archival Standard &amp; Presentation</span>
+                <p className="commissions-manifesto__banner-text">
+                  Each commissioned drawing is rendered using museum-grade materials guaranteed to preserve their longevity across generations. Works arrive in premium protective packaging, accompanied by curated art-related gifts to elevate the collector experience.
+                </p>
+              </div>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* ── 5. Sizing & Tiers ─────────────────────────────────── */}
       <section className="commissions-tiers" aria-labelledby="tiers-heading">
         <div className="container">
           <Reveal>

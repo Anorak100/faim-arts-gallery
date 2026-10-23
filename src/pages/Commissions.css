@@ -627,8 +627,182 @@
   max-width: 440px;
 }
 
+/* ── Commissions Manifesto ──────────────────────────────────── */
+.commissions-manifesto {
+  padding: var(--section-pad) 0;
+  background: linear-gradient(180deg, var(--cream-dark) 0%, rgba(200, 185, 154, 0.22) 50%, var(--cream-dark) 100%);
+  border-top: 1px solid var(--sand);
+  border-bottom: 1px solid var(--sand);
+}
+
+.commissions-manifesto__header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto clamp(36px, 5vw, 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.commissions-manifesto__brand {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  color: var(--brown);
+  margin-bottom: 8px;
+}
+
+.commissions-manifesto__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 0.95;
+  margin-bottom: 18px;
+}
+
+.commissions-manifesto__script {
+  font-family: var(--font-script);
+  font-size: clamp(2.8rem, 5vw, 4.2rem);
+  color: var(--brown-accent);
+  transform: translateY(12px);
+  z-index: 1;
+}
+
+.commissions-manifesto__strong {
+  font-family: var(--font-display);
+  font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+  text-transform: uppercase;
+}
+
+.commissions-manifesto__pill {
+  display: inline-block;
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  font-size: clamp(0.72rem, 1vw, 0.85rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 8px 20px;
+  border-radius: 999px;
+  box-shadow: 0 4px 16px rgba(74, 44, 23, 0.08);
+  border: 1px solid rgba(200, 185, 154, 0.4);
+}
+
+.commissions-manifesto__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: clamp(24px, 3.5vw, 40px);
+  align-items: stretch;
+}
+
+.commissions-manifesto__card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: clamp(32px, 4vw, 48px);
+  border: 1px solid rgba(200, 185, 154, 0.6);
+  box-shadow: 0 16px 40px rgba(74, 44, 23, 0.07);
+  display: flex;
+  flex-direction: column;
+}
+
+.commissions-manifesto__card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--cream-dark);
+}
+
+.commissions-manifesto__card-tag {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--brown);
+}
+
+.commissions-manifesto__card-num {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--sand);
+}
+
+.commissions-manifesto__body {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex-grow: 1;
+}
+
+.commissions-manifesto__block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.commissions-manifesto__card-sep {
+  height: 1px;
+  background: var(--cream-dark);
+  margin: 8px 0;
+}
+
+.commissions-manifesto__text {
+  font-family: var(--font-sans);
+  font-size: 0.96rem;
+  font-style: italic;
+  line-height: 1.8;
+  color: #2b2521;
+}
+
+.commissions-manifesto__text strong {
+  font-weight: 600;
+  color: var(--brown);
+  font-style: normal;
+}
+
+.commissions-manifesto__subtext {
+  font-family: var(--font-sans);
+  font-size: 0.88rem;
+  font-style: normal;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+.commissions-manifesto__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.commissions-manifesto__item {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.commissions-manifesto__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brown);
+  margin-top: 10px;
+  flex-shrink: 0;
+}
+
 /* ── Responsive ─────────────────────────────────────────────── */
 @media (max-width: 1024px) {
+  .commissions-manifesto__grid {
+    grid-template-columns: 1fr;
+  }
   .commissions-grid,
   .commissions-tiers__grid {
     grid-template-columns: repeat(2, 1fr);
