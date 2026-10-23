@@ -108,7 +108,7 @@ export default function SelectedWorks() {
           ctaId="works-view-all"
         />
         <div className="selected-works__grid">
-          {artworks.map((work, i) => (
+          {artworks.filter(work => work.featured).map((work, i) => (
             <ArtCard
               key={work.id}
               artwork={work}
