@@ -1,8 +1,9 @@
-import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Layout      from './components/layout/Layout';
 import Home        from './pages/Home';
 import About       from './pages/About';
 import Gallery     from './pages/Gallery';
+import Commissions from './pages/Commissions';
 import ComingSoon  from './pages/ComingSoon';
 
 export default function App() {
@@ -19,7 +20,7 @@ export default function App() {
 
           {/* Additional pages */}
           <Route path="/about"       element={<About />} />
-          <Route path="/commissions" element={<ComingSoon title="Commissions" />} />
+          <Route path="/commissions" element={<Commissions />} />
           <Route path="/shop"        element={<ComingSoon title="Shop" />} />
           <Route path="/learn"       element={<ComingSoon title="Learn" />} />
           <Route path="/contact"     element={<ComingSoon title="Contact" />} />

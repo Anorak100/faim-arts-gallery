@@ -88,12 +88,12 @@ export default function Gallery() {
             {/* Quick Metrics */}
             <div className="gallery-metrics" role="list">
               <div className="gallery-metric" role="listitem">
-                <span className="gallery-metric__num">14</span>
+                <span className="gallery-metric__num">{artworks.length}</span>
                 <span className="gallery-metric__label">Archival Pieces</span>
               </div>
               <div className="gallery-metric__sep" aria-hidden="true" />
               <div className="gallery-metric" role="listitem">
-                <span className="gallery-metric__num">3</span>
+                <span className="gallery-metric__num">{categories.length - 1}</span>
                 <span className="gallery-metric__label">Curated Series</span>
               </div>
               <div className="gallery-metric__sep" aria-hidden="true" />
