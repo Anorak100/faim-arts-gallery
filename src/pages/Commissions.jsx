@@ -5,26 +5,46 @@ import './Commissions.css';
 
 const tiers = [
   {
-    name: 'Essential',
-    size: '16 × 20 in — 18 × 24 in',
-    hours: '40 – 60 Studio Hours',
-    focus: 'Entry-level intimate portraiture focusing on singular subject presence and delicate ocular light.',
-    includes: ['Archival Strathmore / Arches Cotton Paper', 'Single subject composition', 'Certificate of Authenticity', 'Flat custom archival packaging'],
+    num: '01 / FORMAT',
+    name: 'The Petite Format',
+    size: '12 × 16 in · A3',
+    rates: [
+      { type: 'Individual Portrait', subjects: '1 subject', price: '$550' },
+      { type: 'Couple Portrait', subjects: '2 subjects', price: '$1,200' },
+    ],
   },
   {
-    name: 'Deluxe',
-    size: '20 × 28 in — 22 × 30 in',
-    hours: '70 – 100 Studio Hours',
-    focus: 'Core signature masterwork with dramatic chiaroscuro contrast and deep velvety background tones.',
+    num: '02 / FORMAT',
+    name: 'The Signature Format',
+    size: '16 × 24 in · A2',
     popular: true,
-    includes: ['Museum heavyweight 300gsm cotton rag', 'Single or dual subject composition', 'Dedicated progress photo updates', 'Signed Certificate of Authenticity', 'Free global delivery via DHL Express'],
+    rates: [
+      { type: 'Individual Portrait', subjects: '1 subject', price: '$900' },
+      { type: 'Couple Portrait', subjects: '2 subjects', price: '$1,900' },
+      { type: 'Family Portrait', subjects: '3 subjects', price: '$2,450' },
+    ],
   },
   {
-    name: 'Legacy',
-    size: '24 × 36 in and larger',
-    hours: '110 – 150+ Studio Hours',
-    focus: 'Ultimate monumental statement portrait for multi-subject storytelling, generational heirlooms, or large spaces.',
-    includes: ['Bespoke large-format archival paper', 'Multi-subject or intricate composition', 'Exclusive studio progress documentation', 'UV museum preservation seal', 'Bespoke wooden crate & DHL delivery'],
+    num: '03 / FORMAT',
+    name: 'The Grand Format',
+    size: '24 × 36 in · A1',
+    rates: [
+      { type: 'Individual Portrait', subjects: '1 subject', price: '$1,700' },
+      { type: 'Couple Portrait', subjects: '2 subjects', price: '$3,500' },
+      { type: 'Family Portrait', subjects: '3 subjects', price: '$4,900' },
+      { type: 'Family Portrait', subjects: '4 subjects', price: '$6,000' },
+    ],
+  },
+  {
+    num: '04 / FORMAT',
+    name: "The Collector's Format",
+    size: '36 × 48 in · A0',
+    rates: [
+      { type: 'Individual Portrait', subjects: '1 subject', price: '$3,300' },
+      { type: 'Couple Portrait', subjects: '2 subjects', price: '$5,700' },
+      { type: 'Family Portrait', subjects: '3 subjects', price: '$8,000' },
+      { type: 'Family Portrait', subjects: '4 subjects', price: '$11,200' },
+    ],
   },
 ];
 
@@ -58,7 +78,8 @@ export default function Commissions() {
     name: '',
     email: '',
     country: '',
-    size: 'Deluxe',
+    size: 'The Signature Format',
+    composition: 'Individual Portrait (1 subject)',
     message: '',
   });
 
@@ -80,8 +101,12 @@ export default function Commissions() {
     }
   };
 
-  const selectTierForForm = (tierName) => {
-    setFormData((prev) => ({ ...prev, size: tierName }));
+  const selectTierForForm = (tierName, compositionName = null) => {
+    setFormData((prev) => ({
+      ...prev,
+      size: tierName,
+      ...(compositionName ? { composition: compositionName } : {}),
+    }));
     formRef.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -343,19 +368,19 @@ export default function Commissions() {
         </div>
       </section>
 
-      {/* ── 5. Sizing & Tiers ─────────────────────────────────── */}
+      {/* ── 5. Curated Commission Formats ──────────────────────── */}
       <section className="commissions-tiers" aria-labelledby="tiers-heading">
         <div className="container">
           <Reveal>
             <div className="commissions-eyebrow">
-              <span className="commissions-eyebrow__label">03 / Formats</span>
+              <span className="commissions-eyebrow__label">04 / Formats</span>
               <div className="commissions-eyebrow__line" aria-hidden="true" />
             </div>
             <h2 id="tiers-heading" className="commissions-section-title">
               Curated <em>Commission Formats</em>
             </h2>
             <p className="commissions-tiers__lead">
-              Custom dimensions and multiple-figure compositions are welcomed upon request.
+              Each Faim Arts portrait is a bespoke work of graphite and charcoal, created to preserve the people and connections that matter most.
             </p>
           </Reveal>
 
@@ -365,37 +390,72 @@ export default function Commissions() {
               return (
                 <Reveal
                   key={tier.name}
-                  delay={idx * 120}
+                  delay={idx * 90}
                   className={`commissions-tier-card ${tier.popular ? 'is-popular' : ''} ${isSelected ? 'is-selected' : ''}`}
                 >
                   {tier.popular && <span className="commissions-tier-card__popular-badge">Most Requested</span>}
-                  <div className="commissions-tier-card__header">
+                  
+                  <div className="commissions-tier-card__top">
+                    <span className="commissions-tier-card__num">{tier.num}</span>
+                    <div className="commissions-tier-card__eyebrow-line" aria-hidden="true" />
                     <h3 className="commissions-tier-card__name">{tier.name}</h3>
                     <span className="commissions-tier-card__size">{tier.size}</span>
-                    <span className="commissions-tier-card__hours">{tier.hours}</span>
                   </div>
-                  <p className="commissions-tier-card__focus">{tier.focus}</p>
+
                   <div className="commissions-tier-card__sep" aria-hidden="true" />
-                  <ul className="commissions-tier-card__list">
-                    {tier.includes.map((inc) => (
-                      <li key={inc}>
-                        <span aria-hidden="true">&bull;</span> {inc}
-                      </li>
-                    ))}
-                  </ul>
+
+                  <div className="commissions-tier-card__rates">
+                    {tier.rates.map((rate, rIdx) => {
+                      const isRateActive = isSelected && formData.composition === `${rate.type} (${rate.subjects})`;
+                      return (
+                        <div
+                          key={rIdx}
+                          className={`commissions-tier-card__rate-row ${isRateActive ? 'is-rate-active' : ''}`}
+                          onClick={() => selectTierForForm(tier.name, `${rate.type} (${rate.subjects})`)}
+                          title={`Select ${rate.type} in ${tier.name}`}
+                          role="button"
+                          tabIndex={0}
+                          onKeyDown={(e) => {
+                            if (e.key === 'Enter' || e.key === ' ') {
+                              e.preventDefault();
+                              selectTierForForm(tier.name, `${rate.type} (${rate.subjects})`);
+                            }
+                          }}
+                        >
+                          <div className="commissions-tier-card__rate-meta">
+                            <span className="commissions-tier-card__rate-type">{rate.type}</span>
+                            <span className="commissions-tier-card__rate-subjects">{rate.subjects}</span>
+                          </div>
+                          <span className="commissions-tier-card__rate-price">{rate.price}</span>
+                        </div>
+                      );
+                    })}
+                  </div>
+
                   <button
                     type="button"
                     className={`commissions-tier-card__btn ${isSelected ? 'commissions-tier-card__btn--active' : ''}`}
                     onClick={() => selectTierForForm(tier.name)}
                     aria-pressed={isSelected}
                   >
-                    <span>{isSelected ? 'Format Selected ✓' : 'Select Format'}</span>
+                    <span>{isSelected ? 'Format Selected ✓' : 'Enquire About This Format'}</span>
                     <span aria-hidden="true">&rarr;</span>
                   </button>
                 </Reveal>
               );
             })}
           </div>
+
+          <Reveal delay={150}>
+            <div className="commissions-tiers__footer">
+              <p className="commissions-tiers__footer-lead">
+                Choose your preferred format and portrait composition. Every commission includes full customization, premium luxury packaging, free worldwide express shipping via DHL, and a signed certificate of authenticity.
+              </p>
+              <p className="commissions-tiers__footer-sub">
+                Custom dimensions and multi-figure compositions are available upon request.
+              </p>
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -481,10 +541,27 @@ export default function Commissions() {
                       value={formData.size}
                       onChange={(e) => setFormData({ ...formData, size: e.target.value })}
                     >
-                      <option value="Essential">Essential (16 × 20 in — 18 × 24 in)</option>
-                      <option value="Deluxe">Deluxe (20 × 28 in — 22 × 30 in)</option>
-                      <option value="Legacy">Legacy (24 × 36 in+)</option>
+                      <option value="The Petite Format">The Petite Format (12 × 16 in · A3 — from $550)</option>
+                      <option value="The Signature Format">The Signature Format (16 × 24 in · A2 — from $900)</option>
+                      <option value="The Grand Format">The Grand Format (24 × 36 in · A1 — from $1,700)</option>
+                      <option value="The Collector's Format">The Collector's Format (36 × 48 in · A0 — from $3,300)</option>
                       <option value="Custom Bespoke Dimensions">Custom Bespoke Dimensions (Discuss during consultation)</option>
+                    </select>
+                  </div>
+
+                  <div className="commissions-form__group">
+                    <label htmlFor="comm-composition">Portrait Composition</label>
+                    <select
+                      id="comm-composition"
+                      value={formData.composition}
+                      onChange={(e) => setFormData({ ...formData, composition: e.target.value })}
+                    >
+                      <option value="Individual Portrait (1 subject)">Individual Portrait (1 subject)</option>
+                      <option value="Couple Portrait (2 subjects)">Couple Portrait (2 subjects)</option>
+                      <option value="Family Portrait (3 subjects)">Family Portrait (3 subjects)</option>
+                      <option value="Family Portrait (4 subjects)">Family Portrait (4 subjects)</option>
+                      <option value="Family Portrait (4+ subjects)">Family Portrait (4+ subjects)</option>
+                      <option value="Custom Multi-figure / Generational">Custom Multi-figure / Generational</option>
                     </select>
                   </div>
 
@@ -571,7 +648,7 @@ export default function Commissions() {
                 className="gallery-modal__inquire-btn"
                 onClick={() => {
                   closeViewer();
-                  selectTierForForm('Deluxe');
+                  selectTierForForm('The Signature Format');
                 }}
               >
                 <span>Inquire About A Portrait Commission</span>

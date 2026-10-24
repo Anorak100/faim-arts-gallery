@@ -344,15 +344,15 @@
 
 .commissions-tiers__grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: clamp(24px, 3.5vw, 40px);
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(14px, 1.8vw, 24px);
   align-items: stretch;
 }
 
 .commissions-tier-card {
   background: var(--white);
   border: 1px solid var(--sand);
-  padding: clamp(32px, 4vw, 44px) clamp(24px, 3vw, 36px);
+  padding: clamp(28px, 2.5vw, 36px) clamp(18px, 1.8vw, 24px);
   display: flex;
   flex-direction: column;
   position: relative;
@@ -360,89 +360,136 @@
 }
 
 .commissions-tier-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 48px rgba(74, 44, 23, 0.1);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(74, 44, 23, 0.08);
 }
 
 .commissions-tier-card.is-popular {
   border-top: 3px solid var(--brown);
-  box-shadow: 0 14px 40px rgba(74, 44, 23, 0.08);
 }
 
 .commissions-tier-card__popular-badge {
   position: absolute;
-  top: -12px;
-  right: 24px;
+  top: -13px;
+  left: 50%;
+  transform: translateX(-50%);
   background: var(--brown);
   color: var(--white);
   font-family: var(--font-sans);
   font-size: 0.58rem;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  padding: 4px 10px;
+  padding: 4px 12px;
+  white-space: nowrap;
 }
 
-.commissions-tier-card__header {
-  margin-bottom: 20px;
+.commissions-tier-card__top {
+  margin-bottom: 4px;
+}
+
+.commissions-tier-card__num {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: block;
+}
+
+.commissions-tier-card__eyebrow-line {
+  width: 24px;
+  height: 1px;
+  background: var(--sand);
+  margin-top: 8px;
+  margin-bottom: 16px;
 }
 
 .commissions-tier-card__name {
   font-family: var(--font-display);
-  font-size: 1.6rem;
-  font-weight: 500;
+  font-size: clamp(1.15rem, 1.35vw, 1.45rem);
+  font-weight: 400;
   color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  line-height: 1.2;
   margin-bottom: 8px;
 }
 
 .commissions-tier-card__size {
   display: block;
   font-family: var(--font-sans);
-  font-size: 0.85rem;
-  font-weight: 500;
+  font-size: 0.8rem;
+  font-weight: 400;
   color: var(--brown);
   letter-spacing: 0.04em;
-  margin-bottom: 4px;
-}
-
-.commissions-tier-card__hours {
-  display: block;
-  font-family: var(--font-sans);
-  font-size: 0.72rem;
-  color: var(--muted);
-}
-
-.commissions-tier-card__focus {
-  font-family: var(--font-sans);
-  font-size: 0.88rem;
-  font-weight: 300;
-  line-height: 1.7;
-  color: #3f3a36;
-  margin-bottom: 24px;
 }
 
 .commissions-tier-card__sep {
   height: 1px;
-  background: var(--cream-dark);
-  margin-bottom: 24px;
+  background: var(--sand);
+  opacity: 0.7;
+  margin: 20px 0 16px 0;
 }
 
-.commissions-tier-card__list {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 32px 0;
+.commissions-tier-card__rates {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 14px;
   flex-grow: 1;
+  margin-bottom: 28px;
 }
 
-.commissions-tier-card__list li {
+.commissions-tier-card__rate-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 6px 4px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.2s var(--ease);
+}
+
+.commissions-tier-card__rate-row:hover {
+  background: rgba(235, 229, 220, 0.45);
+}
+
+.commissions-tier-card__rate-row.is-rate-active {
+  background: rgba(74, 44, 23, 0.06);
+  border-left: 2px solid var(--brown);
+  padding-left: 8px;
+}
+
+.commissions-tier-card__rate-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.commissions-tier-card__rate-type {
+  font-family: var(--font-display);
+  font-size: 0.98rem;
+  font-weight: 400;
+  color: var(--ink);
+  line-height: 1.25;
+}
+
+.commissions-tier-card__rate-subjects {
   font-family: var(--font-sans);
-  font-size: 0.82rem;
+  font-size: 0.73rem;
   font-weight: 300;
   color: var(--muted);
-  line-height: 1.5;
+  margin-top: 2px;
+}
+
+.commissions-tier-card__rate-price {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: var(--ink);
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  margin-left: 12px;
 }
 
 .commissions-tier-card__btn {
@@ -451,17 +498,18 @@
   justify-content: center;
   gap: 8px;
   width: 100%;
-  padding: 14px 20px;
-  background: var(--cream-dark);
-  border: 1px solid var(--sand);
-  color: var(--ink);
+  padding: 13px 14px;
+  background: #ede7de;
+  border: 1px solid transparent;
+  color: #2c2520;
   font-family: var(--font-sans);
-  font-size: 0.72rem;
+  font-size: 0.68rem;
   font-weight: 500;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.3s var(--ease);
+  margin-top: auto;
 }
 
 .commissions-tier-card__btn:hover {
@@ -472,8 +520,11 @@
 
 .commissions-tier-card.is-selected {
   border-color: var(--brown);
-  border-top: 3px solid var(--brown);
   box-shadow: 0 16px 44px rgba(74, 44, 23, 0.12);
+}
+
+.commissions-tier-card.is-selected.is-popular {
+  border-top: 3px solid var(--brown);
 }
 
 .commissions-tier-card__btn--active {
@@ -481,6 +532,34 @@
   color: var(--white);
   border-color: var(--brown);
   font-weight: 600;
+}
+
+/* Footer note below curated formats */
+.commissions-tiers__footer {
+  margin-top: clamp(40px, 5vw, 64px);
+  text-align: center;
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.commissions-tiers__footer-lead {
+  font-family: var(--font-sans);
+  font-size: 0.92rem;
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--muted);
+}
+
+.commissions-tiers__footer-sub {
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--brown);
 }
 
 
@@ -756,12 +835,17 @@
 }
 
 /* ── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 1140px) {
+  .commissions-tiers__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 1024px) {
   .commissions-manifesto__grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  .commissions-grid,
-  .commissions-tiers__grid {
+  .commissions-grid {
     grid-template-columns: repeat(2, 1fr);
   }
   .commissions-steps-grid {
