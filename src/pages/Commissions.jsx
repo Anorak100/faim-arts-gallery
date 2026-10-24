@@ -5,26 +5,26 @@ import './Commissions.css';
 
 const tiers = [
   {
-    name: 'The Intimate Study',
+    name: 'Essential',
     size: '16 × 20 in — 18 × 24 in',
     hours: '40 – 60 Studio Hours',
-    focus: 'Head & shoulders portraiture focusing on ocular light and pure emotional nuance.',
+    focus: 'Entry-level intimate portraiture focusing on singular subject presence and delicate ocular light.',
     includes: ['Archival Strathmore / Arches Cotton Paper', 'Single subject composition', 'Certificate of Authenticity', 'Flat custom archival packaging'],
   },
   {
-    name: 'The Classic Heirloom',
+    name: 'Deluxe',
     size: '20 × 28 in — 22 × 30 in',
     hours: '70 – 100 Studio Hours',
-    focus: 'Dramatic bust or half-body portraiture with deep charcoal chiaroscuro and velvety depth.',
+    focus: 'Core signature masterwork with dramatic chiaroscuro contrast and deep velvety background tones.',
     popular: true,
-    includes: ['Museum heavyweight 300gsm cotton rag', 'Single or dual intimate subject', 'Dedicated progress photo updates', 'Signed Certificate of Authenticity', 'Insured global courier delivery'],
+    includes: ['Museum heavyweight 300gsm cotton rag', 'Single or dual subject composition', 'Dedicated progress photo updates', 'Signed Certificate of Authenticity', 'Free global delivery via DHL Express'],
   },
   {
-    name: "The Collector's Monument",
+    name: 'Legacy',
     size: '24 × 36 in and larger',
     hours: '110 – 150+ Studio Hours',
-    focus: 'Monumental statement masterwork with complex conceptual backdrops or multi-subject storytelling.',
-    includes: ['Bespoke large-format archival paper', 'Full-body or multi-subject composition', 'Exclusive video studio progress documentation', 'UV museum preservation seal', 'Bespoke wooden crate delivery'],
+    focus: 'Ultimate monumental statement portrait for multi-subject storytelling, generational heirlooms, or large spaces.',
+    includes: ['Bespoke large-format archival paper', 'Multi-subject or intricate composition', 'Exclusive studio progress documentation', 'UV museum preservation seal', 'Bespoke wooden crate & DHL delivery'],
   },
 ];
 
@@ -58,7 +58,7 @@ export default function Commissions() {
     name: '',
     email: '',
     country: '',
-    size: 'The Classic Heirloom',
+    size: 'Deluxe',
     message: '',
   });
 
@@ -360,33 +360,41 @@ export default function Commissions() {
           </Reveal>
 
           <div className="commissions-tiers__grid">
-            {tiers.map((tier, idx) => (
-              <Reveal key={tier.name} delay={idx * 120} className={`commissions-tier-card ${tier.popular ? 'is-popular' : ''}`}>
-                {tier.popular && <span className="commissions-tier-card__popular-badge">Most Requested</span>}
-                <div className="commissions-tier-card__header">
-                  <h3 className="commissions-tier-card__name">{tier.name}</h3>
-                  <span className="commissions-tier-card__size">{tier.size}</span>
-                  <span className="commissions-tier-card__hours">{tier.hours}</span>
-                </div>
-                <p className="commissions-tier-card__focus">{tier.focus}</p>
-                <div className="commissions-tier-card__sep" aria-hidden="true" />
-                <ul className="commissions-tier-card__list">
-                  {tier.includes.map((inc) => (
-                    <li key={inc}>
-                      <span aria-hidden="true">&bull;</span> {inc}
-                    </li>
-                  ))}
-                </ul>
-                <button
-                  type="button"
-                  className="commissions-tier-card__btn"
-                  onClick={() => selectTierForForm(tier.name)}
+            {tiers.map((tier, idx) => {
+              const isSelected = formData.size === tier.name;
+              return (
+                <Reveal
+                  key={tier.name}
+                  delay={idx * 120}
+                  className={`commissions-tier-card ${tier.popular ? 'is-popular' : ''} ${isSelected ? 'is-selected' : ''}`}
                 >
-                  <span>Select Format</span>
-                  <span aria-hidden="true">&rarr;</span>
-                </button>
-              </Reveal>
-            ))}
+                  {tier.popular && <span className="commissions-tier-card__popular-badge">Most Requested</span>}
+                  <div className="commissions-tier-card__header">
+                    <h3 className="commissions-tier-card__name">{tier.name}</h3>
+                    <span className="commissions-tier-card__size">{tier.size}</span>
+                    <span className="commissions-tier-card__hours">{tier.hours}</span>
+                  </div>
+                  <p className="commissions-tier-card__focus">{tier.focus}</p>
+                  <div className="commissions-tier-card__sep" aria-hidden="true" />
+                  <ul className="commissions-tier-card__list">
+                    {tier.includes.map((inc) => (
+                      <li key={inc}>
+                        <span aria-hidden="true">&bull;</span> {inc}
+                      </li>
+                    ))}
+                  </ul>
+                  <button
+                    type="button"
+                    className={`commissions-tier-card__btn ${isSelected ? 'commissions-tier-card__btn--active' : ''}`}
+                    onClick={() => selectTierForForm(tier.name)}
+                    aria-pressed={isSelected}
+                  >
+                    <span>{isSelected ? 'Format Selected ✓' : 'Select Format'}</span>
+                    <span aria-hidden="true">&rarr;</span>
+                  </button>
+                </Reveal>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -473,9 +481,9 @@ export default function Commissions() {
                       value={formData.size}
                       onChange={(e) => setFormData({ ...formData, size: e.target.value })}
                     >
-                      <option value="The Intimate Study">The Intimate Study (16 × 20 in — 18 × 24 in)</option>
-                      <option value="The Classic Heirloom">The Classic Heirloom (20 × 28 in — 22 × 30 in)</option>
-                      <option value="The Collector's Monument">The Collector's Monument (24 × 36 in+)</option>
+                      <option value="Essential">Essential (16 × 20 in — 18 × 24 in)</option>
+                      <option value="Deluxe">Deluxe (20 × 28 in — 22 × 30 in)</option>
+                      <option value="Legacy">Legacy (24 × 36 in+)</option>
                       <option value="Custom Bespoke Dimensions">Custom Bespoke Dimensions (Discuss during consultation)</option>
                     </select>
                   </div>
@@ -563,7 +571,7 @@ export default function Commissions() {
                 className="gallery-modal__inquire-btn"
                 onClick={() => {
                   closeViewer();
-                  selectTierForForm('The Classic Heirloom');
+                  selectTierForForm('Deluxe');
                 }}
               >
                 <span>Inquire About A Portrait Commission</span>
