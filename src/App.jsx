@@ -4,6 +4,7 @@ import Home        from './pages/Home';
 import About       from './pages/About';
 import Gallery     from './pages/Gallery';
 import Commissions from './pages/Commissions';
+import Contact     from './pages/Contact';
 import Learn       from './pages/Learn';
 import ComingSoon  from './pages/ComingSoon';
 
@@ -24,7 +25,7 @@ export default function App() {
           <Route path="/commissions" element={<Commissions />} />
           <Route path="/shop"        element={<ComingSoon title="Shop" />} />
           <Route path="/learn"       element={<Learn />} />
-          <Route path="/contact"     element={<ComingSoon title="Contact" />} />
+          <Route path="/contact"     element={<Contact />} />
 
           {/* Fallback */}
           <Route path="*"            element={<ComingSoon title="Not Found" />} />
