@@ -11,7 +11,7 @@ export default function Learn() {
     name: '',
     email: '',
     country: '',
-    program: 'Faim Arts Academy, Ile-Ife',
+    program: 'Mastering Realism in Graphite & Charcoal',
     experience: 'Beginner (Just starting out)',
     message: '',
   });
@@ -90,11 +90,11 @@ export default function Learn() {
             <div className="learn-badges" role="list">
               <div className="learn-badge" role="listitem">
                 <span className="learn-badge__dot" aria-hidden="true" />
-                <span>Physical In-Studio Academies</span>
+                <span>Interactive 1-on-1 Zoom Mentorship</span>
               </div>
               <div className="learn-badge" role="listitem">
                 <span className="learn-badge__dot" aria-hidden="true" />
-                <span>Global Interactive Mentorship</span>
+                <span>Global Telegram Coaching Group</span>
               </div>
               <div className="learn-badge" role="listitem">
                 <span className="learn-badge__dot" aria-hidden="true" />
@@ -301,22 +301,22 @@ export default function Learn() {
                 Begin Your <em>Mentorship</em>
               </h2>
               <p className="learn-inquiry__lead">
-                Have questions regarding class schedules, cohort enrollment for the Faim Arts Academy in Ile-Ife, or
-                scheduling your Virtual 1-on-1 Zoom sessions?
+                Have questions regarding syllabus schedules, preparing for the Virtual 1-on-1 Drawing Program, or
+                joining the Mastering Realism coaching group?
               </p>
               <p className="learn-inquiry__sub">
                 Submit your inquiry below. Iyanuoluwapo personally reviews prospective students to ensure our programs
-                align with your artistic ambitions.
+                align with your artistic ambitions and skill level.
               </p>
 
               <div className="learn-inquiry__contacts">
                 <div className="learn-inquiry__contact-item">
-                  <span className="learn-inquiry__contact-label">Academy Location</span>
-                  <span className="learn-inquiry__contact-val">Ile-Ife, Osun State, Nigeria</span>
+                  <span className="learn-inquiry__contact-label">Mentorship Delivery</span>
+                  <span className="learn-inquiry__contact-val">Live 1-on-1 Zoom &amp; Global Telegram Coaching</span>
                 </div>
                 <div className="learn-inquiry__contact-item">
-                  <span className="learn-inquiry__contact-label">Online Inquiries</span>
-                  <span className="learn-inquiry__contact-val">Direct Telegram, Zoom &amp; WhatsApp Mentorship</span>
+                  <span className="learn-inquiry__contact-label">Instant Enrollments</span>
+                  <span className="learn-inquiry__contact-val">Direct Digital Access &amp; Checkout via Selar</span>
                 </div>
               </div>
             </div>
@@ -384,7 +384,7 @@ export default function Learn() {
                       value={formData.program}
                       onChange={(e) => setFormData({ ...formData, program: e.target.value })}
                     >
-                      <option value="Faim Arts Academy, Ile-Ife">Faim Arts Academy, Ile-Ife (Physical Classes)</option>
+                      <option value="Monetizing Your Art Blueprint Course">Monetizing Your Art Blueprint Course (Video Course · ₦7,400 / $7.40)</option>
                       <option value="Mastering Realism in Graphite & Charcoal">Mastering Realism (Telegram Group Coaching · $75 / ₦25,000)</option>
                       <option value="Virtual One-to-One Drawing Program">Virtual One-to-One Drawing Program (Zoom 45-Hour · ₦90,000 / $197)</option>
                       <option value="The Entrepreneurial Artist (Publication Inquiry)">The Entrepreneurial Artist ($22 / ₦8,500)</option>

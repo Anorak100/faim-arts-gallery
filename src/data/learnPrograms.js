@@ -1,43 +1,45 @@
-import faaImg from '../assets/learn/faa_academy.jpg';
 import masteringRealismImg from '../assets/learn/mastering_realism.jpg';
 import virtualOneOnOneImg from '../assets/learn/virtual_one_on_one.jpg';
+import monetizingYourArtImg from '../assets/learn/monetizing_your_art.png';
 import entrepreneurialArtistImg from '../assets/learn/entrepreneurial_artist.jpg';
 import achievingRealismImg from '../assets/learn/achieving_realism.jpg';
 
 export const learnCategories = [
   { id: 'all', label: 'All Resources', count: 5 },
-  { id: 'mentorship', label: 'Coaching & Academies', count: 3 },
+  { id: 'mentorship', label: 'Coaching & Mentorship', count: 3 },
   { id: 'books', label: 'Authored Publications', count: 2 },
 ];
 
 export const learnPrograms = [
   {
-    id: 'faim-arts-academy',
+    id: 'monetizing-your-art-blueprint',
     category: 'mentorship',
-    format: 'Physical Classes',
-    tag: 'Physical Classes · Ile-Ife',
-    location: 'Ile-Ife, Osun State, Nigeria',
-    title: 'Faim Arts Academy, Ile-Ife',
-    subtitle: 'Annual cohort in-studio apprenticeship & foundational hyper-realism',
-    image: faaImg,
+    format: 'Video Masterclass & Community',
+    tag: 'Platform: Video Course & Community',
+    location: 'Instant Online Access / Lifetime Video & Community',
+    title: 'Monetizing Your Art Blueprint Course',
+    subtitle: 'A proven strategic system to transform artistic passion into consistent income',
+    image: monetizingYourArtImg,
     blurb:
-      'You can now learn to become a professional artist directly from me through physical classes in Ile-Ife. Registration is once a year and there are different plans for you to pick from, depending on your needs. Join the host of other students whose lives have been transformed by knowledge, and experience this in the most personal way.',
-    price: 'Check Within',
-    priceSub: 'Annual Admissions Cohort',
-    ctaType: 'inquire',
-    ctaLabel: 'Inquire & Learn More',
+      "Knowledge is power they say. In Monetising Your Art Blueprint Course, I will give you the power to transform your art business from a passion or hobby into a fully monetized system you can call business and make consistent income from. The course will help you make your first $100, $200, $500, $1,000 and so on, if you follow the exact steps I've used to build an international art brand that generates consistent revenue.",
+    price: '₦7,400 / $7.40',
+    priceSub: 'Limited Pre-Launch Price (Was ₦10,000 / $10)',
+    ctaType: 'external',
+    ctaLabel: 'Enroll on Selar',
+    ctaUrl: 'https://selar.com/myab',
     features: [
-      'In-person studio mentorship with Iyanuoluwapo Akoteyon',
-      'Hands-on classical chiaroscuro, graphite & carbon alchemy',
-      'Professional studio easel and live model study sessions',
-      'Curated materials kit: Strathmore/Arches papers & graded mediums',
-      'Strictly limited student intake per seasonal cohort',
+      'Comprehensive masterclass on how money actually works for visual artists',
+      'The step-by-step formula for creating in-demand, sellable original art',
+      'High-conversion marketing, brand positioning, and pricing structures',
+      'Exclusive membership discussion group with direct feedback & critique',
+      'Printable "Your First $500 Blueprint Template" for immediate execution',
+      'Bonus PDF guides: "100 Niches for Sellable Art" & "100 Video Hooks"',
     ],
     curriculum: [
-      { week: 'Module 01', title: 'The Anatomy of Perception & Proportion', desc: 'Sighting techniques, geometric construction, and optical accuracy.' },
-      { week: 'Module 02', title: 'Tonal Value Scales & Contrast Architecture', desc: 'Layering 2H to 9B graphite, matte carbon control, and dark depth.' },
-      { week: 'Module 03', title: 'Skin Textures & Organic Micro-Details', desc: 'Indenting, tortillon blending, pore structures, and ocular illumination.' },
-      { week: 'Module 04', title: 'The Masterwork Project & Presentation', desc: 'Completing a gallery-grade portrait, UV sealing, and collector framing.' },
+      { week: 'Module 01', title: 'The Economics of Art & Money', desc: 'How money works in the creative economy and eliminating financial blind spots.' },
+      { week: 'Module 02', title: 'Creating High-Demand Sellable Art', desc: 'Aligning your creative style with collector demand and 100 profitable niches.' },
+      { week: 'Module 03', title: 'The Art Sales & Positioning Formula', desc: 'Crafting magnetic video hooks, attracting buyers, and building authority.' },
+      { week: 'Module 04', title: 'Your First $500 Action Plan', desc: 'Actionable step-by-step roadmap to pricing, closing inquiries, and repeatable revenue.' },
     ],
   },
   {
