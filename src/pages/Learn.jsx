@@ -1,64 +1,26 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef } from 'react';
 import Reveal from '../components/ui/Reveal';
 import { learnPrograms, learnCategories } from '../data/learnPrograms';
 import './Learn.css';
 
 export default function Learn() {
   const [activeCategory, setActiveCategory] = useState('all');
-  const [activeModalProgram, setActiveModalProgram] = useState(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     country: '',
-    program: 'Mastering Realism in Graphite & Charcoal',
+    program: 'Monetizing Your Art Blueprint Course',
     experience: 'Beginner (Just starting out)',
     message: '',
   });
 
   const formRef = useRef(null);
-  const closeBtnRef = useRef(null);
 
   const filteredPrograms = learnPrograms.filter((item) => {
     if (activeCategory === 'all') return true;
     return item.category === activeCategory;
   });
-
-  const selectProgramForInquiry = (programTitle) => {
-    setFormData((prev) => ({ ...prev, program: programTitle }));
-    if (activeModalProgram) {
-      setActiveModalProgram(null);
-    }
-    setTimeout(() => {
-      formRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
-  };
-
-  const openProgramModal = (program) => {
-    setActiveModalProgram(program);
-  };
-
-  const closeProgramModal = () => {
-    setActiveModalProgram(null);
-  };
-
-  useEffect(() => {
-    if (activeModalProgram) {
-      const originalOverflow = document.body.style.overflow;
-      document.body.style.overflow = 'hidden';
-      closeBtnRef.current?.focus();
-
-      const handleKeyDown = (e) => {
-        if (e.key === 'Escape') closeProgramModal();
-      };
-      window.addEventListener('keydown', handleKeyDown);
-
-      return () => {
-        document.body.style.overflow = originalOverflow;
-        window.removeEventListener('keydown', handleKeyDown);
-      };
-    }
-  }, [activeModalProgram]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -167,16 +129,6 @@ export default function Learn() {
 
                       <p className="learn-card__blurb">{item.blurb}</p>
 
-                      {/* Pricing Tag */}
-                      <div className="learn-card__price-box">
-                        <div className="learn-card__price-main">
-                          <span className="learn-card__price-label">Tuition / Investment</span>
-                          <span className="learn-card__price-val">{item.price}</span>
-                        </div>
-                        {item.priceSub && <span className="learn-card__price-sub">{item.priceSub}</span>}
-                        {item.priceNote && <span className="learn-card__price-note">{item.priceNote}</span>}
-                      </div>
-
                       {/* Feature Highlights */}
                       <ul className="learn-card__features" aria-label="Program highlights">
                         {item.features.map((feat, fIdx) => (
@@ -189,50 +141,16 @@ export default function Learn() {
 
                       {/* Actions */}
                       <div className="learn-card__actions">
-                        {item.ctaType === 'external' ? (
-                          <>
-                            <a
-                              href={item.ctaUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="learn-btn learn-btn--primary"
-                              aria-label={`Buy or enroll in ${item.title} on Selar`}
-                            >
-                              <span>{item.ctaLabel}</span>
-                              <span aria-hidden="true">&rarr;</span>
-                            </a>
-                            {(item.curriculum || item.chapters) && (
-                              <button
-                                type="button"
-                                className="learn-btn learn-btn--secondary"
-                                onClick={() => openProgramModal(item)}
-                                aria-label={`View details for ${item.title}`}
-                              >
-                                <span>{item.curriculum ? 'View Syllabus' : 'Overview'}</span>
-                              </button>
-                            )}
-                          </>
-                        ) : (
-                          <>
-                            <button
-                              type="button"
-                              className="learn-btn learn-btn--primary"
-                              onClick={() => selectProgramForInquiry(item.title)}
-                              aria-label={`Enroll in ${item.title}`}
-                            >
-                              <span>Enroll / Inquire</span>
-                              <span aria-hidden="true">&rarr;</span>
-                            </button>
-                            <button
-                              type="button"
-                              className="learn-btn learn-btn--secondary"
-                              onClick={() => openProgramModal(item)}
-                              aria-label={`View detailed syllabus for ${item.title}`}
-                            >
-                              <span>View Syllabus</span>
-                            </button>
-                          </>
-                        )}
+                        <a
+                          href={item.ctaUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="learn-btn learn-btn--primary"
+                          aria-label={`Buy or enroll in ${item.title} on Selar`}
+                        >
+                          <span>{item.ctaLabel}</span>
+                          <span aria-hidden="true">&rarr;</span>
+                        </a>
                       </div>
                     </div>
                   </article>
@@ -384,12 +302,9 @@ export default function Learn() {
                       value={formData.program}
                       onChange={(e) => setFormData({ ...formData, program: e.target.value })}
                     >
-                      <option value="Monetizing Your Art Blueprint Course">Monetizing Your Art Blueprint Course (Video Course · ₦7,400 / $7.40)</option>
-                      <option value="Mastering Realism in Graphite & Charcoal">Mastering Realism (Telegram Group Coaching · $75 / ₦25,000)</option>
-                      <option value="Virtual One-to-One Drawing Program">Virtual One-to-One Drawing Program (Zoom 45-Hour · ₦90,000 / $197)</option>
-                      <option value="The Entrepreneurial Artist (Publication Inquiry)">The Entrepreneurial Artist ($22 / ₦8,500)</option>
-                      <option value="The Artist's Guide to Achieving Realism (Publication Inquiry)">The Artist's Guide to Achieving Realism ($15 / ₦6,500)</option>
-                      <option value="General Art Consultation & Mentorship">General Art Consultation &amp; Mentorship</option>
+                      <option value="Monetizing Your Art Blueprint Course">Monetizing Your Art Blueprint Course (Video Masterclass)</option>
+                      <option value="Mastering Realism in Graphite & Charcoal">Mastering Realism (Telegram Group Coaching)</option>
+                      <option value="Virtual One-to-One Drawing Program">Virtual One-to-One Drawing Program (Zoom 45-Hour Mentorship)</option>
                     </select>
                   </div>
 
@@ -428,104 +343,6 @@ export default function Learn() {
         </div>
       </section>
 
-      {/* ── 5. Detailed Syllabus Lightbox Modal ───────────────── */}
-      {activeModalProgram && (
-        <div
-          className="learn-modal"
-          role="dialog"
-          aria-modal="true"
-          aria-label={`${activeModalProgram.title} details`}
-          onClick={(e) => {
-            if (e.target === e.currentTarget) closeProgramModal();
-          }}
-        >
-          <button
-            ref={closeBtnRef}
-            type="button"
-            className="learn-modal__close"
-            onClick={closeProgramModal}
-            aria-label="Close details"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
-              <line x1="18" y1="6" x2="6" y2="18" />
-              <line x1="6" y1="6" x2="18" y2="18" />
-            </svg>
-          </button>
-
-          <div className="learn-modal__container">
-            <div className="learn-modal__stage">
-              <img
-                src={activeModalProgram.image}
-                alt={activeModalProgram.title}
-                className="learn-modal__img"
-              />
-              <div className="learn-modal__stage-meta">
-                <span className="learn-modal__badge">{activeModalProgram.tag}</span>
-                <span className="learn-modal__price">{activeModalProgram.price}</span>
-              </div>
-            </div>
-
-            <div className="learn-modal__content">
-              <span className="learn-modal__category">{activeModalProgram.format}</span>
-              <h3 className="learn-modal__title">{activeModalProgram.title}</h3>
-              <p className="learn-modal__subtitle">{activeModalProgram.subtitle}</p>
-
-              <div className="learn-modal__sep" aria-hidden="true" />
-
-              <p className="learn-modal__blurb">{activeModalProgram.blurb}</p>
-
-              {activeModalProgram.curriculum && (
-                <div className="learn-modal__curriculum">
-                  <h4 className="learn-modal__section-heading">Curriculum Architecture</h4>
-                  <div className="learn-modal__timeline">
-                    {activeModalProgram.curriculum.map((curr, cIdx) => (
-                      <div key={cIdx} className="learn-modal__timeline-item">
-                        <span className="learn-modal__timeline-label">{curr.week}</span>
-                        <h5 className="learn-modal__timeline-title">{curr.title}</h5>
-                        <p className="learn-modal__timeline-desc">{curr.desc}</p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              )}
-
-              {activeModalProgram.chapters && (
-                <div className="learn-modal__curriculum">
-                  <h4 className="learn-modal__section-heading">Table of Contents</h4>
-                  <ul className="learn-modal__chapters">
-                    {activeModalProgram.chapters.map((ch, chIdx) => (
-                      <li key={chIdx}>{ch}</li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-
-              <div className="learn-modal__actions">
-                {activeModalProgram.ctaType === 'external' ? (
-                  <a
-                    href={activeModalProgram.ctaUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="learn-btn learn-btn--primary"
-                  >
-                    <span>{activeModalProgram.ctaLabel}</span>
-                    <span aria-hidden="true">&rarr;</span>
-                  </a>
-                ) : (
-                  <button
-                    type="button"
-                    className="learn-btn learn-btn--primary"
-                    onClick={() => selectProgramForInquiry(activeModalProgram.title)}
-                  >
-                    <span>Inquire About This Program</span>
-                    <span aria-hidden="true">&rarr;</span>
-                  </button>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </main>
   );
 }

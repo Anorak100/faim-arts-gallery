@@ -126,13 +126,6 @@ export const learnPrograms = [
       'Managing global logistics, packaging, and international wire payments',
       'Downloadable PDF accessible on any device immediately',
     ],
-    chapters: [
-      'Chapter 1: The Mindset of the Sovereign Creator',
-      'Chapter 2: Value Creation vs. Technical Vanity',
-      'Chapter 3: Structuring High-Ticket Commission Inquiries',
-      'Chapter 4: The Psychology of Luxury Art Collectors',
-      'Chapter 5: Scaling Studio Revenue Without Burning Out',
-    ],
   },
   {
     id: 'achieving-realism',
@@ -156,13 +149,6 @@ export const learnPrograms = [
       '18 distinct step-by-step texture rendering case studies',
       'Facial proportions formulas and spatial alignment rules',
       'Systematic muscle-memory exercises for rapid breakthrough',
-    ],
-    chapters: [
-      'Part 1: The Foundations of Realistic Observation',
-      'Part 2: 18 Step-by-Step Texture Masterclasses (Skin, Cloth, Metal, Hair)',
-      'Part 3: Facial Proportions & Anatomical Landmarks',
-      'Part 4: Shading Dynamics & Eliminating Artificial Sharpness',
-      'Part 5: Muscle-Memory Practice Regimens & Checklists',
     ],
   },
 ];
