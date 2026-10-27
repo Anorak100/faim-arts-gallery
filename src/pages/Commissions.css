@@ -257,6 +257,120 @@
 }
 
 /* ── 3. The 4-Step Process ──────────────────────────────────── */
+.commissions-testimonials {
+  padding: var(--section-pad) 0;
+  background: var(--cream-dark);
+  border-block: 1px solid var(--sand);
+}
+
+.commissions-testimonials__header {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 38px;
+}
+
+.commissions-testimonials__lead {
+  max-width: 440px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.8;
+}
+
+.commissions-testimonials__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2.5vw, 30px);
+}
+
+.commissions-testimonial article {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 14px 14px 24px;
+  border: 1px solid var(--sand);
+  background: var(--cream);
+}
+
+.commissions-testimonial__top {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+}
+
+.commissions-testimonial__top img {
+  width: 62px;
+  height: 62px;
+  flex: 0 0 auto;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid var(--sand);
+}
+
+.commissions-testimonial__quote {
+  color: var(--brown-accent);
+  font-family: var(--font-display);
+  font-size: 4.4rem;
+  font-style: italic;
+  font-weight: 300;
+  line-height: 0.7;
+}
+
+.commissions-testimonial blockquote {
+  flex: 1;
+  color: var(--muted);
+  font-size: 0.91rem;
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+.commissions-testimonial cite {
+  display: block;
+  margin-top: 20px;
+  color: var(--brown);
+  font-family: var(--font-sans);
+  font-size: 0.71rem;
+  font-style: normal;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.commissions-testimonials__controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.commissions-testimonials__controls button {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--brown);
+  color: var(--brown);
+  font-size: 1.2rem;
+  transition: background 0.25s var(--ease), color 0.25s var(--ease);
+}
+
+.commissions-testimonials__controls button:hover,
+.commissions-testimonials__controls button:focus-visible {
+  background: var(--brown);
+  color: var(--cream);
+}
+
+.commissions-testimonials__controls span {
+  min-width: 48px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-align: center;
+}
+
 .commissions-process {
   padding: var(--section-pad) 0;
   background: var(--cream-dark);
@@ -851,6 +965,9 @@
   .commissions-steps-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .commissions-testimonials__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .commissions-hero__content,
   .commissions-portfolio__header,
   .commissions-inquiry__box {
@@ -862,8 +979,15 @@
 @media (max-width: 768px) {
   .commissions-grid,
   .commissions-tiers__grid,
-  .commissions-steps-grid {
+  .commissions-steps-grid,
+  .commissions-testimonials__grid {
     grid-template-columns: 1fr;
+  }
+  .commissions-testimonials__header {
+    display: block;
+  }
+  .commissions-testimonials__lead {
+    margin-top: 18px;
   }
   .commissions-badges {
     flex-direction: column;

@@ -1,6 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
 import Reveal from '../components/ui/Reveal';
 import { commissionArtworks } from '../data/artworks';
+import fearsDefeated from '../assets/reviews/fears_defeated.jpeg';
+import mrFemi from '../assets/reviews/mr_femi.jpeg';
+import bigMummy from '../assets/reviews/big_mummy.jpg';
+import egbonTobi from '../assets/reviews/egbon_tobi.jpeg';
+import missPelumi from '../assets/reviews/miss_pelumi.jpg';
+import mrFinidi from '../assets/reviews/mr_finidi.jpg';
+import mrIfeanyi from '../assets/reviews/mr_ifeanyi.jpg';
+import tosin from '../assets/reviews/tosin.jpeg';
+import mrBolu from '../assets/reviews/mr_bolu.jpeg';
 import './Commissions.css';
 
 const tiers = [
@@ -71,9 +80,22 @@ const steps = [
   },
 ];
 
+const testimonials = [
+  { name: 'Mr. Sam', image: fearsDefeated, quote: "I came across your ad on WhatsApp. The voiceover was so good that I had to make a compliment. I noticed you had a store attached, checked through and found the art—‘Fears Defeated’. At first glance, I didn’t get the message from the drawing, but when I read the text attached, it made sense. Coincidentally, I was reading 50 Cent’s book, ‘The 50th Law’, at the time. The purchase was my first from you, and I am more of an impulse buyer. The packaging was solid, delivery was exactly as stated, and the art was exactly what I ordered. For those aspiring to buy from Faim Arts, she’s really good. Look at her catalog and find an artwork you connect with strongly and feel good about." },
+  { name: 'Mr. Femi', image: mrFemi, quote: 'This is awesome. It is an embodiment of perfection. You have put in a lot of time and energy in creating this masterpiece, and I must say, it has paid off! I am wowed by your artistic effort in bringing this into reality. You’re dexterous. Presently, I am staring at this glorious art and it gladdens my heart to be the one on it. I wish all my dreams in life can come through like this masterpiece. Words can’t explain how I feel.' },
+  { name: 'Mr. Obinna', image: bigMummy, quote: 'I met Faim Arts on IG. I was looking for a serious and really good artist for a commission. The more interesting things about her are that she is talented, intelligent and has very good customer relationship, which I’m impressed by. Her delivery was swift and it came earlier than I expected, which is proof she can be trusted. She’s been tested and has passed the mark. I would rate her a 9/10. I will definitely recommend her and even plan on working with her again soon.' },
+  { name: 'Mr. Oluwatobi', image: egbonTobi, quote: 'Perfect example of what you want is what you got. I loved the drawing so much I made a big frame of it. I’ll want you to patronise and I’m sure you’ll always come for more. She’s just the best at what she does.' },
+  { name: 'Mr. Finidi', image: missPelumi, quote: 'I met Iyanu through a WhatsApp ad. Since I’m a fan of arts and had been looking to do something creative for my wife, I was immediately interested in Iyanu’s service—Faim Arts. Looking at the samples she portrayed in the advertorial, I felt she could help out with what I wanted. And honestly, what I got was way more than what I paid for. Faim Arts was very orderly in the execution of the commission and delivered within the proposed deadline. Iyanu is good at what she does. She adds an extra to her services, which makes it even better. Trust me, I’m going nowhere else when it comes to pencil drawing requirements.' },
+  { name: 'Miss Pelumi', image: mrFinidi, quote: 'I actually thought you’d disappoint me either by taking my money and not completing the work or giving me the opposite of what I expected. Didn’t know you from anywhere, but decided to take the risk. I am impressed and quite happy. You made me gain a lot of trust in you. You didn’t disappoint. You delivered what I expected; it was almost like the black and white of the real picture. I’ll recommend you a million times to people. You’re indeed rare.' },
+  { name: 'Mr. Ifeanyi', image: mrIfeanyi, quote: 'I met you on Instagram. I just wanted a great job with attention to detail. It was a commission and my concern was if you’d deliver on the expectation. I like the fact that you’re professional and courteous. The packaging and delivery process was awesome and I am very satisfied with the work. I’d definitely recommend you in a heartbeat.' },
+  { name: 'Tosin Daramola', image: tosin, quote: 'Faim Arts is great! She took me through the whole process of the drawing and every bit of it was fascinating. She’s an artist with vast knowledge in the world of drawing. It was actually a present to a friend and she was delighted. I’m glad.' },
+  { name: 'Boluwatife', image: mrBolu, quote: 'It’s been nice working with you! This your customer relations/support ehn... 100%. I have checked the drawing and it’s so good, met my expectations. Those touch of pimples. Thank you so much.' },
+];
+
 export default function Commissions() {
   const [activeArtwork, setActiveArtwork] = useState(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [testimonialPage, setTestimonialPage] = useState(0);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -135,6 +157,8 @@ export default function Commissions() {
   };
 
   const activeIndex = activeArtwork ? commissionArtworks.findIndex((w) => w.id === activeArtwork.id) : -1;
+  const testimonialPageCount = Math.ceil(testimonials.length / 3);
+  const visibleTestimonials = testimonials.slice(testimonialPage * 3, testimonialPage * 3 + 3);
 
   return (
     <main className="commissions-page" id="commissions-page" aria-label="Bespoke Art Commissions by Iyanuoluwapo Akoteyon">
@@ -249,6 +273,44 @@ export default function Commissions() {
       </section>
 
       {/* ── 3. The 4-Step Process ──────────────────────────────── */}
+      <section className="commissions-testimonials" aria-labelledby="testimonials-heading">
+        <div className="container">
+          <Reveal>
+            <div className="commissions-testimonials__header">
+              <div>
+                <div className="commissions-eyebrow">
+                  <span className="commissions-eyebrow__label">Collector Notes</span>
+                  <div className="commissions-eyebrow__line" aria-hidden="true" />
+                </div>
+                <h2 id="testimonials-heading" className="commissions-section-title">What People Are <em>Saying</em></h2>
+              </div>
+              <p className="commissions-testimonials__lead">Words from collectors who have welcomed a Faim Arts work into their story.</p>
+            </div>
+          </Reveal>
+
+          <div className="commissions-testimonials__grid" aria-live="polite">
+            {visibleTestimonials.map((testimonial, index) => (
+              <Reveal key={testimonial.name} delay={index * 100} className="commissions-testimonial">
+                <article>
+                  <div className="commissions-testimonial__top">
+                    <img src={testimonial.image} alt={`Commission created for ${testimonial.name}`} loading="lazy" />
+                    <span aria-hidden="true" className="commissions-testimonial__quote">“</span>
+                  </div>
+                  <blockquote>{testimonial.quote}</blockquote>
+                  <cite>— {testimonial.name}</cite>
+                </article>
+              </Reveal>
+            ))}
+          </div>
+
+          <div className="commissions-testimonials__controls" aria-label="Testimonial pages">
+            <button type="button" onClick={() => setTestimonialPage((page) => (page - 1 + testimonialPageCount) % testimonialPageCount)} aria-label="Previous testimonials">←</button>
+            <span>{String(testimonialPage + 1).padStart(2, '0')} / {String(testimonialPageCount).padStart(2, '0')}</span>
+            <button type="button" onClick={() => setTestimonialPage((page) => (page + 1) % testimonialPageCount)} aria-label="Next testimonials">→</button>
+          </div>
+        </div>
+      </section>
+
       <section className="commissions-process" aria-labelledby="process-heading">
         <div className="container">
           <Reveal>
