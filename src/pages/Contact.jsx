@@ -20,20 +20,22 @@ function ContactIcon({ type }) {
     );
   }
 
-  if (type === 'phone') {
-    return (
-      <svg viewBox="0 0 24 24" aria-hidden="true">
-        <path d="M7 3h3l2 5-2.5 1.5a14 14 0 0 0 5 5L16 12l5 2v3c0 1.1-.9 2-2 2C10.7 19 5 13.3 5 5c0-1.1.9-2 2-2Z" />
-      </svg>
-    );
-  }
-
   return (
     <svg viewBox="0 0 24 24" aria-hidden="true">
       <rect x="3" y="5" width="18" height="14" rx="1.5" />
       <path d="m4 7 8 6 8-6" />
     </svg>
   );
+}
+
+function SocialIcon({ name }) {
+  if (name === 'Instagram') {
+    return <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" /></svg>;
+  }
+  if (name === 'TikTok') {
+    return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.5 3v11.2a4.2 4.2 0 1 1-3.4-4.1" /><path d="M12.5 3c.4 3.2 2.4 5.2 5.5 5.5" /></svg>;
+  }
+  return <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" /></svg>;
 }
 
 function ContactDetail({ icon, label, children }) {
@@ -116,10 +118,7 @@ export default function Contact() {
             <section className="contact-info__group" aria-labelledby="contact-studio-title">
               <h2 className="contact-info__heading" id="contact-studio-title">Studio</h2>
               <ContactDetail icon="location" label="Location">
-                <span>Lagos, Nigeria</span>
-              </ContactDetail>
-              <ContactDetail icon="phone" label="Phone">
-                <span>+234 000 000 0000</span>
+                <span>Ile-Ife, Nigeria</span>
               </ContactDetail>
             </section>
 
@@ -129,9 +128,9 @@ export default function Contact() {
                 <a href="mailto:faimarts@gmail.com">faimarts@gmail.com</a>
               </ContactDetail>
               <nav className="contact-socials" aria-label="Social media">
-                <a href="https://www.instagram.com/faimarts" target="_blank" rel="noopener noreferrer">Instagram</a>
-                <a href="https://www.tiktok.com/@faimarts" target="_blank" rel="noopener noreferrer">TikTok</a>
-                <a href="https://www.facebook.com/faimarts" target="_blank" rel="noopener noreferrer">Facebook</a>
+                <a href="https://www.instagram.com/faimarts" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><SocialIcon name="Instagram" /></a>
+                <a href="https://www.tiktok.com/@faimarts" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><SocialIcon name="TikTok" /></a>
+                <a href="https://www.facebook.com/faimarts" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><SocialIcon name="Facebook" /></a>
               </nav>
             </section>
           </div>

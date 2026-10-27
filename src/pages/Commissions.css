@@ -979,9 +979,23 @@
 @media (max-width: 768px) {
   .commissions-grid,
   .commissions-tiers__grid,
-  .commissions-steps-grid,
-  .commissions-testimonials__grid {
+  .commissions-steps-grid {
     grid-template-columns: 1fr;
+  }
+  .commissions-testimonials__grid {
+    grid-auto-columns: minmax(82%, 1fr);
+    grid-auto-flow: column;
+    grid-template-columns: none;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    padding: 0 var(--gutter) 12px;
+    margin-inline: calc(var(--gutter) * -1);
+    scroll-padding-inline: var(--gutter);
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+  }
+  .commissions-testimonial {
+    scroll-snap-align: start;
   }
   .commissions-testimonials__header {
     display: block;
