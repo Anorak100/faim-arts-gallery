@@ -8,6 +8,7 @@ export default function Gallery() {
   const [activeCategory, setActiveCategory] = useState('All Works');
   const [viewMode, setViewMode] = useState('salon'); // 'salon' | 'grid'
   const [activeArtwork, setActiveArtwork] = useState(null);
+  const [viewerImageLoading, setViewerImageLoading] = useState(false);
   const closeBtnRef = useRef(null);
   const triggerRefs = useRef({});
 
@@ -18,11 +19,13 @@ export default function Gallery() {
 
   // Focus management for modal
   const openViewer = (work) => {
+    setViewerImageLoading(true);
     setActiveArtwork(work);
   };
 
   const closeViewer = () => {
     const closedId = activeArtwork?.id;
+    setViewerImageLoading(false);
     setActiveArtwork(null);
     if (closedId && triggerRefs.current[closedId]) {
       setTimeout(() => {
@@ -39,6 +42,7 @@ export default function Gallery() {
     let nextIndex = currentIndex + direction;
     if (nextIndex < 0) nextIndex = filteredWorks.length - 1;
     if (nextIndex >= filteredWorks.length) nextIndex = 0;
+    setViewerImageLoading(true);
     setActiveArtwork(filteredWorks[nextIndex]);
   };
 
@@ -304,11 +308,15 @@ export default function Gallery() {
           {/* Main Modal Layout */}
           <div className="gallery-modal__container">
             {/* Image Stage */}
-            <div className="gallery-modal__stage">
+            <div className={`gallery-modal__stage ${viewerImageLoading ? 'is-loading' : ''}`} aria-busy={viewerImageLoading}>
+              {viewerImageLoading && <div className="gallery-modal__skeleton" aria-hidden="true" />}
               <img
+                key={activeArtwork.id}
                 src={activeArtwork.viewerImage}
                 alt={activeArtwork.alt || activeArtwork.title}
                 className="gallery-modal__img"
+                onLoad={() => setViewerImageLoading(false)}
+                onError={() => setViewerImageLoading(false)}
               />
             </div>
 

@@ -507,10 +507,24 @@
 
 /* Stage */
 .gallery-modal__stage {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   max-height: 82vh;
+}
+
+.gallery-modal__stage.is-loading {
+  min-height: min(70vh, 640px);
+}
+
+.gallery-modal__skeleton {
+  width: min(100%, 470px);
+  aspect-ratio: 3 / 4;
+  background: linear-gradient(105deg, #2d2925 20%, #484039 38%, #2d2925 56%);
+  background-size: 200% 100%;
+  border: 1px solid rgba(200, 185, 154, 0.25);
+  animation: galleryImageSkeleton 1.35s ease-in-out infinite;
 }
 
 .gallery-modal__img {
@@ -522,6 +536,16 @@
   display: block;
   box-shadow: 0 24px 72px rgba(0, 0, 0, 0.7);
   border: 1px solid rgba(200, 185, 154, 0.25);
+}
+
+.gallery-modal__stage.is-loading .gallery-modal__img {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes galleryImageSkeleton {
+  to { background-position: -200% 0; }
 }
 
 /* Metadata Panel */
