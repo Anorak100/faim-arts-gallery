@@ -8,7 +8,7 @@
 export const galleryCategories = ['All Works', 'Core Values', 'Portraits'];
 
 // ── 1. The Gallery Collection (6 Masterworks) ────────────────
-export const galleryArtworks = [
+const allGalleryArtworks = [
   {
     id:          'core-values-1',
     title:       'Core Values I',
@@ -114,6 +114,24 @@ export const galleryArtworks = [
     description: 'A powerful portrait capturing the overcoming of inner adversity and the quiet triumph of courage and peace.',
   },
   {
+    id:          'core-values-collection',
+    title:       'Core Values Collection',
+    category:    'Core Values',
+    medium:      'Graphite & Charcoal on Archival Paper',
+    year:        '2023',
+    dimensions:  'Collection of Three Works',
+    image:       'https://res.cloudinary.com/gbnsoe4f/image/upload/v1792708302/IMG_1106.jpg',
+    viewerImage: 'https://res.cloudinary.com/gbnsoe4f/image/upload/v1792708302/IMG_1106.jpg',
+    alt:         'Core Values Collection by Iyanuoluwapo Akoteyon',
+    size:        'large',
+    featured:    true,
+    showInfo:    true,
+    shopUrl:     'https://selar.com/corevaluescollection',
+    aspect:      'tall',
+    objectPosition: 'center center',
+    description: 'A three-work collection exploring foundational character, truth, spiritual presence, and self-possession through graphite and charcoal portraiture.',
+  },
+  {
     id:          'black-is-beautiful',
     title:       'Black Is Beautiful',
     category:    'Portraits',
@@ -145,7 +163,27 @@ export const galleryArtworks = [
     aspect:      'portrait',
     description: 'An intimate portrait inviting the viewer into a moment of reflection.',
   },
+  {
+    id:          'trapped',
+    title:       'Trapped',
+    category:    'Portraits',
+    medium:      'Graphite & Charcoal on Paper',
+    year:        '—',
+    dimensions:  'Dimensions on request',
+    image:       'https://res.cloudinary.com/gbnsoe4f/image/upload/v1793168917/IMG_2754.jpg',
+    viewerImage: 'https://res.cloudinary.com/gbnsoe4f/image/upload/v1793168917/IMG_2754.jpg',
+    alt:         'Trapped by Iyanuoluwapo Akoteyon',
+    size:        'medium',
+    featured:    false,
+    showInfo:    true,
+    aspect:      'portrait',
+    description: 'A contemplative graphite and charcoal work exploring confinement and the inner life.',
+  },
 ];
+
+export const galleryArtworks = allGalleryArtworks.filter(
+  ({ id }) => !['core-values-1', 'core-values-2', 'core-values-3'].includes(id)
+);
 
 // ── 2. The Commissions Collection (8 Client Portraits) ──────
 // Private client commissions have NO titles or artificial groupings

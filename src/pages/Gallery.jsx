@@ -380,12 +380,12 @@ export default function Gallery() {
               Private studio commissions are welcomed for distinguished collectors worldwide.
             </p>
             <div className="gallery-footer-cta__btns">
-              <Link to="/commissions" className="about-btn about-btn--primary">
-                <span>Request Commission</span>
+              <Link to="/shop" className="about-btn about-btn--primary">
+                <span>Purchase Artwork</span>
                 <span className="about-btn__arrow" aria-hidden="true">&rarr;</span>
               </Link>
-              <Link to="/contact" className="about-btn about-btn--secondary">
-                <span>Contact Studio</span>
+              <Link to="/commissions" className="about-btn about-btn--secondary">
+                <span>Request Commission</span>
               </Link>
             </div>
           </Reveal>
