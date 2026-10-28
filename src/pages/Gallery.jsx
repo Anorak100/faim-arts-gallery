@@ -239,7 +239,6 @@ export default function Gallery() {
                       <p className="gallery-card__medium">{work.medium}</p>
                       <div className="gallery-card__footer">
                         <span className="gallery-card__dimensions">{work.dimensions}</span>
-                        <span className="gallery-card__category">{work.category}</span>
                       </div>
                     </div>
                   </article>

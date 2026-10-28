@@ -90,6 +90,14 @@ export default function Footer() {
 
         <div className="footer__bottom">
           <p className="footer__copy">&copy; {year} Faim Arts. All rights reserved.</p>
+          <a
+            className="footer__credit"
+            href="https://israelakot.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Designed and built by Israel Akoteyon
+          </a>
           <p className="footer__tagline">Art. Identity. Humanity.</p>
         </div>
 

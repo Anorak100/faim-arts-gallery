@@ -107,12 +107,26 @@
 }
 
 .footer__copy,
-.footer__tagline {
+.footer__tagline,
+.footer__credit {
   font-family: var(--font-sans);
   font-size: 0.68rem;
   font-weight: 300;
   color: var(--muted);
   letter-spacing: 0.05em;
+}
+
+.footer__credit {
+  color: var(--brown);
+  text-decoration: none;
+  transition: color 0.25s var(--ease);
+}
+
+.footer__credit:hover,
+.footer__credit:focus-visible {
+  color: var(--brown-accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
 }
 
 @media (max-width: 680px) {

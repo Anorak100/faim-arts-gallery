@@ -6,6 +6,7 @@ import Gallery     from './pages/Gallery';
 import Commissions from './pages/Commissions';
 import Contact     from './pages/Contact';
 import Learn       from './pages/Learn';
+import Shop        from './pages/Shop';
 import ComingSoon  from './pages/ComingSoon';
 
 export default function App() {
@@ -23,7 +24,7 @@ export default function App() {
           {/* Additional pages */}
           <Route path="/about"       element={<About />} />
           <Route path="/commissions" element={<Commissions />} />
-          <Route path="/shop"        element={<ComingSoon title="Shop" />} />
+          <Route path="/shop"        element={<Shop />} />
           <Route path="/learn"       element={<Learn />} />
           <Route path="/contact"     element={<Contact />} />
 
