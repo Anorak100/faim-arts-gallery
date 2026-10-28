@@ -760,4 +760,41 @@
   .gallery-metric__sep {
     display: none;
   }
+  .gallery-modal {
+    align-items: flex-start;
+    padding: 72px 16px 20px;
+  }
+  .gallery-modal__container {
+    gap: 20px;
+    padding: 0;
+  }
+  .gallery-modal__stage,
+  .gallery-modal__stage.is-loading {
+    min-height: min(56svh, 520px);
+    max-height: 58svh;
+  }
+  .gallery-modal__img {
+    max-height: 58svh;
+  }
+  .gallery-modal__meta {
+    padding: 20px;
+  }
+  .gallery-modal__spec-row {
+    grid-template-columns: 78px 1fr;
+  }
+  .gallery-modal__inquire-btn {
+    width: 100%;
+    justify-content: center;
+  }
+  .gallery-footer-cta__box {
+    padding: 32px 22px;
+  }
+  .gallery-footer-cta__btns {
+    flex-direction: column;
+    width: 100%;
+  }
+  .gallery-footer-cta__btns .about-btn {
+    width: 100%;
+    justify-content: center;
+  }
 }

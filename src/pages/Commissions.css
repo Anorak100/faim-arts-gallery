@@ -1007,4 +1007,34 @@
     flex-direction: column;
     gap: 12px;
   }
+  .commissions-tier-card__btn,
+  .commissions-form__submit {
+    width: 100%;
+    justify-content: center;
+  }
+  .commissions-tiers__footer,
+  .commissions-inquiry__box {
+    padding: 24px 20px;
+  }
+  .commissions-testimonials__controls {
+    justify-content: center;
+  }
+  .gallery-modal {
+    align-items: flex-start;
+    padding: 72px 16px 20px;
+  }
+  .gallery-modal__container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0;
+  }
+  .gallery-modal__stage {
+    max-height: 56svh;
+  }
+  .gallery-modal__img {
+    max-height: 56svh;
+  }
+  .gallery-modal__meta {
+    padding: 20px;
+  }
 }

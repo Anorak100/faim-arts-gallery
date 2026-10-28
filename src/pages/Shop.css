@@ -270,4 +270,15 @@
 
 @media (max-width: 560px) {
   .shop-grid { grid-template-columns: 1fr; }
+  .shop-card__details {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .shop-card__coming-soon,
+  .shop-card__selar-link { text-align: left; }
+  .shop-faq__answer { padding-right: 0; }
+  .shop-commission-cta__button {
+    width: 100%;
+    justify-content: center;
+  }
 }

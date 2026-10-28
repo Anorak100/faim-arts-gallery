@@ -944,4 +944,24 @@
   .learn-card__actions .learn-btn {
     width: 100%;
   }
+  .learn-modal {
+    align-items: flex-start;
+    padding: 68px 14px 18px;
+  }
+  .learn-modal__container {
+    gap: 0;
+    padding: 0;
+  }
+  .learn-modal__stage {
+    min-height: 210px;
+  }
+  .learn-modal__content {
+    padding: 22px 18px;
+  }
+  .learn-modal__timeline {
+    gap: 16px;
+  }
+  .learn-modal__timeline-item {
+    grid-template-columns: 72px 1fr;
+  }
 }
